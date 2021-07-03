@@ -25,6 +25,7 @@ export default
   "category": 0,
   "collection": 106,
   "cover": 132062,
+  "cover_url": "https://images.igdb.com/igdb/image/upload/t_cover_big/co2twe.jpg", 
   "created_at": 1326323753,
   "expansions": [
       132646
