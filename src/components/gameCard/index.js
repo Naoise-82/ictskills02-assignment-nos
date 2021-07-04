@@ -7,15 +7,17 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardHeader from "@material-ui/core/CardHeader";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import FavoriteIcon from "@material-ui/icons/Favorite";
+import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
 import StarRateIcon from "@material-ui/icons/StarRate";
 import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
+import { Tooltip } from "@material-ui/core";
 
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
   media: { height: 500 },
+  logo: { height: 70, width: 70, },
   avatar: {
     backgroundColor: "rgb(255, 0, 0)",
   },
@@ -26,35 +28,34 @@ export default function GameCard(props) {
   const game = props.game;
   return (
     <Card className={classes.card}>
-      <CardHeader className={classes.header} title={game.title} />
+      <Grid container>
+        <Grid item xs={9}>
+          <CardHeader className={classes.header} title={
+            <Typography variant="h6" component="p">
+              {game.name}
+            </Typography>
+          }
+          />
+        </Grid>
+        <Grid item xs={3}>
+          <CardMedia
+            className={classes.logo}
+            image={game.platform_logo_url}
+          />
+        </Grid>
+      </Grid>
       <CardMedia
         className={classes.media}
-        image={
-          game.cover_url
-        }
+        image={game.cover_url}
       />
-      <CardContent>
-        <Grid container>
-          <Grid item xs={6}>
-            <Typography variant="h6" component="p">
-              <CalendarIcon fontSize="small" />
-              {game.release_dates[0]}
-            </Typography>
-          </Grid>
-          <Grid item xs={6}>
-            <Typography variant="h6" component="p">
-              <StarRateIcon fontSize="small" />
-              {"  "} {game.rating}{" "}
-            </Typography>
-          </Grid>
-        </Grid>
-      </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites" onClick={null}>
-          <FavoriteIcon color="primary" fontSize="large" />
-        </IconButton>
+        <Tooltip title="Add to my collection" >
+          <IconButton aria-label="add to my collection" onClick={null}>
+            <LibraryAddIcon color="primary" fontSize="large" />
+          </IconButton>
+        </Tooltip>
         <Button variant="outlined" size="medium" color="primary">
-          More Info ...
+          Details...
         </Button>
       </CardActions>
     </Card>
