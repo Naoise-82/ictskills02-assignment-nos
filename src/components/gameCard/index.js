@@ -8,8 +8,6 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
-import CalendarIcon from "@material-ui/icons/CalendarTodayTwoTone";
-import StarRateIcon from "@material-ui/icons/StarRate";
 import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import { Tooltip } from "@material-ui/core";
@@ -17,7 +15,7 @@ import { Tooltip } from "@material-ui/core";
 const useStyles = makeStyles({
   card: { maxWidth: 345 },
   media: { height: 500 },
-  logo: { height: 70, width: 70, },
+  logo: { height: 60, width: 60, margin: 15 },
   avatar: {
     backgroundColor: "rgb(255, 0, 0)",
   },
@@ -48,7 +46,21 @@ export default function GameCard(props) {
         className={classes.media}
         image={game.cover_url}
       />
-      <CardActions disableSpacing>
+      <CardContent>
+        <Grid container>
+          <Grid xs={6}>
+            <Typography>
+              Released: {game.release_date_hard_coded}
+            </Typography>
+          </Grid>
+          <Grid xs={6}>
+            <Typography>
+              Platform: {game.platform_hard_coded}
+            </Typography>
+          </Grid>
+        </Grid>
+      </CardContent>
+      <CardActions>
         <Tooltip title="Add to my collection" >
           <IconButton aria-label="add to my collection" onClick={null}>
             <LibraryAddIcon color="primary" fontSize="large" />

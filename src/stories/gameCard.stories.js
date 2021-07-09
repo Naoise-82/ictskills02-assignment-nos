@@ -1,6 +1,7 @@
 import React from "react";
 import GameCard from "../components/gameCard";
 import SampleGame from "./sampleData";
+import { getGame } from "../api/igdb-api";
 
 export default {
   title: "Home Page/GameCard",
@@ -10,7 +11,7 @@ export default {
 export const Basic = () => {
   return (
     <GameCard
-      game={SampleGame}
+      game={getGame(1029)}
     />
   );
 };

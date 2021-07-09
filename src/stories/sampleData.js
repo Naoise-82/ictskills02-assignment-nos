@@ -362,6 +362,7 @@ export default
       41,
       47
   ],
+  "platform_hard_coded": "N64",
   "platform_logo_url": "https://images.igdb.com/igdb/image/upload/t_logo_med/pl77.png",
   "player_perspectives": [
       2
@@ -378,6 +379,7 @@ export default
       144252,
       144253
   ],
+  "release_date_hard_coded": 1998,
   "screenshots": [
       18046,
       24104,
