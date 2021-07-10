@@ -38,24 +38,24 @@ export default function GameCard(props) {
         <Grid item xs={3}>
           <CardMedia
             className={classes.logo}
-            image={game.platform_logo_url}
+            image={`//images.igdb.com/igdb/image/upload/t_thumb/${game.platforms[0].platform_logo.image_id}.jpg`}
           />
         </Grid>
       </Grid>
       <CardMedia
         className={classes.media}
-        image={game.cover_url}
+        image={`//images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.jpg`}
       />
       <CardContent>
         <Grid container>
           <Grid xs={6}>
             <Typography>
-              Released: {game.release_date_hard_coded}
+              Released: {game.release_dates[0].y}
             </Typography>
           </Grid>
           <Grid xs={6}>
             <Typography>
-              Platform: {game.platform_hard_coded}
+              Platform: {game.platforms[0].abbreviation}
             </Typography>
           </Grid>
         </Grid>

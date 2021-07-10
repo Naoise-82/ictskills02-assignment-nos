@@ -13,7 +13,7 @@ export const getGame = async (gameId) => {
         'Authorization': accessToken,
         'Access-Control-Allow-Origin': 'http://localhost:6006',
     },
-    data: "fields cover.url,name,platforms[0].abbreviation,rating,release_dates[0].y,summary;\r\nwhere id = " + gameId + ";"
+    data: "fields cover.image_id,name,platforms.abbreviation,rating,release_dates.y,summary;\r\nwhere id = " + gameId + ";"
   })
     .then(response => {
         console.log(response.data);
