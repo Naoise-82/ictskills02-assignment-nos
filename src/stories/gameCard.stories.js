@@ -20,7 +20,7 @@ export const Exceptional = () => {
   const sampleNoPoster = { ...SampleGame, poster_path: undefined };
   return (
     <GameCard
-      movie={sampleNoPoster}
+      game={sampleNoPoster}
     />
   );
 };

@@ -67,7 +67,7 @@ export default function GameCard(props) {
           </IconButton>
         </Tooltip>
         <Button variant="outlined" size="medium" color="primary">
-          Details...
+          More Details...
         </Button>
       </CardActions>
     </Card>
