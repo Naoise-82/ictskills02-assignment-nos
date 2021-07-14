@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import HomePage from "./pages/homePage";
+//import HomePage from "./pages/homePage";
 import GameDetailsPage from "./pages/gameDetailsPage"
 
 const sample = 
@@ -164,11 +164,22 @@ const sample =
     "summary": "A 3D reimagining of the core premise of The Legend of Zelda: A Link to the Past (1991), Ocarina of Time follows Link, the protagonist, as he picks up a sword and leaves behind his humble origins in order to trek across the land of Hyrule, venture into its treacherous dungeons and travel through time itself to fulfill his destiny as the Hero of Time by defeating his enemy Ganondorf and ridding Hyrule of evil."
 };
 
-const games = [sample, sample, sample, sample, sample, sample, sample];
+//const games = [sample, sample, sample, sample, sample, sample, sample];
+
+const images = [
+  "/hsycs23tftukuix2ftnc.jpg",
+  "/or16ydorr1b35aq2f8mc.jpg",
+  "/porwa0yo3cerskw2ggcb.jpg",
+  "/btsnrjrewz8md0ztije.jpg",
+  "/id65ty6ulps9twunpb0r.jpg",
+  "/id65ty6ulps9twunpb0r.jpg",
+  "/id65ty6ulps9twunpb0r.jpg",
+  "/id65ty6ulps9twunpb0r.jpg"
+]
 
 const App = () => {
   return (
-    <GameDetailsPage game={sample} />
+    <GameDetailsPage game={sample} images={images} />
   );
 };
 
