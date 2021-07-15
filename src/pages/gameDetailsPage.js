@@ -11,15 +11,13 @@ import ImageListItem from '@material-ui/core/ImageListItem';
 const useStyles = makeStyles((theme) => ({
   root: {
     display: "flex",
-    flexWrap: "nowrap",
-    //overflow: 'hidden',
+    flexWrap: "wrap",
+    overflow: 'hidden',
     justifyContent: "space-around",
   },
   imageList: {
-    display: 'flex',
     flexWrap: "nowrap",
-    overflow: 'scroll',
-    //transform: "translateZ(0)",
+    transform: "translateZ(0)",
   },
 }));
 
@@ -33,11 +31,11 @@ const GamePage = (props) => {
       {game ? (
         <>
           <GameHeader game={game} />
-          <div classname={classes.root}>
-            <ImageList classname={classes.imageList} cols={5}>
+          <div className={classes.root}>
+            <ImageList className={classes.imageList} cols={4}>
               {images.map((i) => (
                 <ImageListItem key={i.id}>
-                  <img src={`https://images.igdb.com/igdb/image/upload/t_screenshot_big${i}`}
+                  <img src={`https://images.igdb.com/igdb/image/upload/t_screenshot_med${i}`}
                     alt={i.poster_path} />
                 </ImageListItem>
               ))}
