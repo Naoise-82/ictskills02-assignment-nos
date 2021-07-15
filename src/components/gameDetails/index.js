@@ -1,7 +1,5 @@
 import React from "react";
 import Chip from "@material-ui/core/Chip";
-import Paper from "@material-ui/core/Paper";
-import StarRate from "@material-ui/icons/StarRate";
 import NavigationIcon from "@material-ui/icons/Navigation";
 import Fab from "@material-ui/core/Fab";
 import Typography from "@material-ui/core/Typography";
@@ -15,6 +13,10 @@ const useStyles = makeStyles((theme) => ({
     listStyle: "none",
     padding: theme.spacing(0.5),
     margin: 0,
+  },
+  summary: {
+    	marginLeft: 10,
+      paddingLeft: 15
   },
   chip: {
     margin: theme.spacing(0.5),
@@ -32,25 +34,23 @@ const GameDetails = (props) => {
 
   return (
     <>
-      <Typography variant="h5" component="h3">
+      <Typography className={classes.summary} variant="h5" component="h3">
         Summary
       </Typography>
-
-      <Typography variant="h6" component="p">
+      <Typography className={classes.summary} variant="h6" component="p">
         {game.summary}
       </Typography>
-
-      <Paper component="ul" className={classes.root}>
+      <div component="ul" className={classes.root}>
         <li>
-          <Chip label="Platforms" className={classes.chip} color="primary" />
+          <Chip variant="outlined" label="Platforms" className={classes.chip} color="primary" />
         </li>
         {game.platforms.map((g) => (
           <li key={g.id}>
             <Chip label={g.abbreviation} className={classes.chip} />
           </li>
         ))}
-      </Paper>
-      <Paper component="ul" className={classes.root}>
+      </div>
+      <div component="ul" className={classes.root}>
         <li>
           <Chip label="Genres" className={classes.chip} color="primary" />
         </li>
@@ -59,14 +59,13 @@ const GameDetails = (props) => {
             <Chip label={g.name} className={classes.chip} />
           </li>
         ))}
-      </Paper>
-      <Paper component="ul" className={classes.root}>
+      </div>
+      <div component="ul" className={classes.root}>
         <Chip
-          icon={<StarRate />}
-          label={`${Math.round(game.rating*100)/100} (${game.rating_count}) votes`} className={classes.chip}
+          label={`Rating: ${Math.round(game.rating*100)/100} (${game.rating_count} votes)`} className={classes.chip}
         />
         <Chip label={`Originally Released: ${game.release_dates[0].y} (${game.platforms[0].abbreviation})` }  className={classes.chip}/>
-        </Paper>
+        </div>
 
       <Fab
         color="secondary"

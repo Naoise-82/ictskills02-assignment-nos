@@ -8,12 +8,12 @@ export const getGame = async (gameId) => {
     url: "https://api.igdb.com/v4/games",
     method: 'POST',
     headers: {
+        'mode': 'no-cors',
         'Accept': 'application/json',
         'Client-ID': clientId,
         'Authorization': accessToken,
-        'Access-Control-Allow-Origin': 'http://localhost:6006',
     },
-    data: "fields cover.image_id,name,platforms.abbreviation,rating,release_dates.y,summary;\r\nwhere id = " + gameId + ";"
+    data: "fields cover.image_id,franchises.name,game_modes.name,genres.*,name,platforms.platform_logo.image_id,platforms.abbreviation,rating,rating_count,release_dates.y,screenshots.image_id,screenshots.url,summary;\r\nwhere id = " + gameId + ";"
   })
     .then(response => {
         console.log(response.data);
