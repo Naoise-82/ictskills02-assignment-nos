@@ -16,23 +16,20 @@ const GameListPage = (props) => {
   const classes = useStyles();
   const [games, setGames] = useState([]);
 
-  const clientId = process.env.TWITCH_CLIENT_ID;
-  const accessToken = "Bearer " + process.env.TWITCH_APP_ACCESS_TOKEN;
-
   useEffect(() => {
     axios({
       url: "http://localhost:4000/fetch/https://api.igdb.com/v4/games",
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'Client-ID': clientId,
-        'Authorization': accessToken,
+        'Client-ID': 'a8e25v1mi6k10bn250wn6cpghlac6j',
+        'Authorization': 'Bearer ut7kh439z9pb38oz5u5y8tymfddo7a',
       },
       data: "fields cover.image_id,franchises.name,game_modes.name,genres.*,name,platforms.platform_logo.image_id,platforms.abbreviation,rating,rating_count,release_dates.y,screenshots.image_id,screenshots.url,summary;limit 10;"
     })
       .then(response => {
         console.log(response.data);
-        return response.json();
+        return response.data;
       })
       .then((games) => {
         setGames(games);
@@ -40,7 +37,8 @@ const GameListPage = (props) => {
       .catch(err => {
         console.error(err);
       });
-  })
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Grid container className={classes.root}>
