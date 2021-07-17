@@ -22,8 +22,8 @@ const GameListPage = (props) => {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
-        'Client-ID': 'a8e25v1mi6k10bn250wn6cpghlac6j',
-        'Authorization': 'Bearer ut7kh439z9pb38oz5u5y8tymfddo7a',
+        'Client-ID': process.env.REACT_APP_TWITCH_CLIENT_ID,
+        'Authorization': `Bearer ${process.env.REACT_APP_TWITCH_ACCESS_TOKEN}`,
       },
       data: "fields cover.image_id,franchises.name,game_modes.name,genres.*,name,platforms.platform_logo.image_id,platforms.abbreviation,rating,rating_count,release_dates.y,screenshots.image_id,screenshots.url,summary;limit 10;"
     })
