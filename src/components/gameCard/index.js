@@ -24,6 +24,7 @@ const useStyles = makeStyles({
 export default function GameCard(props) {
   const classes = useStyles();
   const game = props.game;
+  console.log(game.platforms);
   return (
     <Card className={classes.card}>
       <Grid container>
@@ -35,28 +36,28 @@ export default function GameCard(props) {
           }
           />
         </Grid>
-        <Grid item xs={3}>
+        {/*<Grid item xs={3}>
           <CardMedia
             className={classes.logo}
-            image={`//images.igdb.com/igdb/image/upload/t_thumb/${game.platforms[0].platform_logo.image_id}.jpg`}
+            image={`//images.igdb.com/igdb/image/upload/t_thumb/${game.platforms.platform_logo.image_id}.jpg`}
           />
-        </Grid>
+        </Grid>*/}
       </Grid>
-      <CardMedia
+      {/*<CardMedia
         className={classes.media}
         image={`//images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.jpg`}
-      />
+      />*/}
       <CardContent>
         <Grid container>
           <Grid xs={6}>
-            <Typography>
+            {/*<Typography>
               Released: {game.release_dates[0].y}
-            </Typography>
+            </Typography>*/}
           </Grid>
           <Grid xs={6}>
-            <Typography>
+            {/*<Typography>
               Platform: {game.platforms[0].abbreviation}
-            </Typography>
+            </Typography>*/}
           </Grid>
         </Grid>
       </CardContent>
