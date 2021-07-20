@@ -11,11 +11,17 @@ import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import { Tooltip } from "@material-ui/core";
+import platform_placeholder from "../../images/platform-placeholder.png";
 
 const useStyles = makeStyles({
-  card: { maxWidth: 345 },
-  media: { height: 500 },
-  logo: { height: 60, width: 60, margin: 15 },
+  card: {
+    maxHeight: 1000
+  },
+  media: {
+    height: 500,
+    width: '100%' 
+  },
+  logo: { height: 60, width: 'auto', margin: 15 },
   avatar: {
     backgroundColor: "rgb(255, 0, 0)",
   },
@@ -24,7 +30,6 @@ const useStyles = makeStyles({
 export default function GameCard(props) {
   const classes = useStyles();
   const game = props.game;
-  console.log(game.platforms);
   return (
     <Card className={classes.card}>
       <Grid container>
@@ -36,28 +41,29 @@ export default function GameCard(props) {
           }
           />
         </Grid>
-        {/*<Grid item xs={3}>
+        <Grid item xs={3}>
           <CardMedia
             className={classes.logo}
-            image={`//images.igdb.com/igdb/image/upload/t_thumb/${game.platforms.platform_logo.image_id}.jpg`}
+            image={game.plaforms ? `https://images.igdb.com/igdb/image/upload/t_thumb/${game.platforms[0].platform_logo.image_id}.jpg`
+              : platform_placeholder}
           />
-        </Grid>*/}
+        </Grid>
       </Grid>
-      {/*<CardMedia
+      <CardMedia
         className={classes.media}
-        image={`//images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.jpg`}
-      />*/}
+        image={game.cover ? `//images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.jpg` : platform_placeholder}
+      />
       <CardContent>
         <Grid container>
           <Grid xs={6}>
-            {/*<Typography>
-              Released: {game.release_dates[0].y}
-            </Typography>*/}
+            {<Typography>
+              Released: {game.release_dates ? game.release_dates[0].y : "N/A"}
+            </Typography>}
           </Grid>
           <Grid xs={6}>
-            {/*<Typography>
-              Platform: {game.platforms[0].abbreviation}
-            </Typography>*/}
+            <Typography>
+              Platform: {game.platforms ? game.platforms[0].abbreviation : "N/A"}
+            </Typography>
           </Grid>
         </Grid>
       </CardContent>
