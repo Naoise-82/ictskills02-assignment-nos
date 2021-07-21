@@ -15,13 +15,17 @@ import platform_placeholder from "../../images/platform-placeholder.png";
 
 const useStyles = makeStyles({
   card: {
-    maxHeight: 1000
+    maxHeight: 650
   },
   media: {
-    height: 500,
-    width: '100%' 
+    height: 400,
+    backgroundSize: 'contain' 
   },
-  logo: { height: 60, width: 'auto', margin: 15 },
+  logo: {
+    height: 60,
+    width: 60,
+    backgroundSize: 'contain',
+    margin: 10 },
   avatar: {
     backgroundColor: "rgb(255, 0, 0)",
   },
@@ -44,7 +48,7 @@ export default function GameCard(props) {
         <Grid item xs={3}>
           <CardMedia
             className={classes.logo}
-            image={game.plaforms ? `https://images.igdb.com/igdb/image/upload/t_thumb/${game.platforms[0].platform_logo.image_id}.jpg`
+            image={game.platforms ? `https://images.igdb.com/igdb/image/upload/t_thumb/${game.platforms[0].platform_logo.image_id}.jpg`
               : platform_placeholder}
           />
         </Grid>
