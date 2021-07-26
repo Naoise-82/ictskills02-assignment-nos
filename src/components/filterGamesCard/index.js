@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect} from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 //import CardMedia from "@material-ui/core/CardMedia";
@@ -10,6 +10,7 @@ import TextField from "@material-ui/core/TextField";
 import SearchIcon from "@material-ui/icons/Search";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,12 +28,49 @@ const useStyles = makeStyles((theme) => ({
 
 export default function FilterGamesCard(props) {
   const classes = useStyles();
+  const [genres, setGenres ] = useState([{ id: '0', name: 'All'}]);
 
-  const genres = [
-    {id: 1, name: "Action"},
-    {id: 2, name: "Platformer"},
-    {id: 3, name: "RPG"}
-  ]
+  /*const genres = [
+    {id: 31, name: "Adventure"},
+    {id: 8, name: "Platform"},
+    {id: 12, name: "RPG"}
+  ]*/
+
+  useEffect(() => {
+    axios({
+      url: "http://localhost:4000/fetch/https://api.igdb.com/v4/genres",
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Client-ID': process.env.REACT_APP_TWITCH_CLIENT_ID,
+        'Authorization': `Bearer ${process.env.REACT_APP_TWITCH_ACCESS_TOKEN}`,
+      },
+      data: "fields *;limit 25;"
+    })
+      .then(response => {
+        console.log(response.data);
+        return response.data;
+      })
+      .then(apiGenres => {
+        setGenres(genres[0], ...apiGenres);
+      })
+      .catch(err => {
+        console.error(err);
+      });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const handleChange = (e, type, value) => {
+    e.preventDefault()
+    props.onUserInput(type, value)
+  };
+
+  const handleTextChange = e => {
+    handleChange(e, "name", e.target.value)
+  };
+  const handleGenreChange = e => {
+    handleChange(e, "genres", e.target.value)
+  };
 
   return (
     <Card className={classes.root} variant="outlined">
@@ -46,13 +84,17 @@ export default function FilterGamesCard(props) {
           id="filled-search"
           label="Search Field"
           type="search"
+          value={props.titleFilter}
           variant="filled"
+          onChange={handleTextChange}
         />
         <FormControl className={classes.formControl}>
           <InputLabel id="genre-label">Genre</InputLabel>
           <Select
             labelId="genre-label"
             id="genre-select"
+            value={props.genreFilter}
+            onChange={handleGenreChange}
           >
             {genres.map((genre) => {
               return (

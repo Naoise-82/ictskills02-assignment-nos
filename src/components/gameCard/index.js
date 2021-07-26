@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
@@ -19,13 +20,14 @@ const useStyles = makeStyles({
   },
   media: {
     height: 400,
-    backgroundSize: 'contain' 
+    backgroundSize: 'contain'
   },
   logo: {
     height: 60,
     width: 60,
     backgroundSize: 'contain',
-    margin: 10 },
+    margin: 10
+  },
   avatar: {
     backgroundColor: "rgb(255, 0, 0)",
   },
@@ -77,9 +79,11 @@ export default function GameCard(props) {
             <LibraryAddIcon color="primary" fontSize="large" />
           </IconButton>
         </Tooltip>
-        <Button variant="outlined" size="medium" color="primary">
-          More Details...
-        </Button>
+        <Link to={`/games/${game.id}`}>
+          <Button variant="outlined" size="medium" color="primary">
+            More Details...
+          </Button>
+        </Link>
       </CardActions>
     </Card>
   );
