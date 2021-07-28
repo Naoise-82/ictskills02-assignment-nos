@@ -19,14 +19,18 @@ const GameListPage = (props) => {
   const [genreFilter, setGenreFilter] = useState("0");
 
   const genreId = Number(genreFilter);
+  console.log("Genre Filter: " + genreFilter);
+  console.log("Genre ID: " + genreId);
 
   let displayedGames = games
     .filter((g) => {
       return g.name.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
     })
     .filter((g) => {
-      return genreId > 0 ? g.genres.id.includes(genreId) : true;
+      return genreId > 0 ? g.genres[0].id === genreId : true;
     });
+
+  console.log(displayedGames);
 
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
@@ -46,7 +50,7 @@ const GameListPage = (props) => {
       data: "fields id,cover.image_id,first_release_date,franchises.name,game_modes.name,genres.*,name,platforms.platform_logo.image_id,platforms.abbreviation,rating,rating_count,release_dates.y,screenshots.image_id,screenshots.url,summary;where cover!=null & platforms != {6,82} & platforms.platform_logo != null;limit 30;"
     })
       .then(response => {
-        //console.log(response.data);
+        console.log(response.data);
         return response.data;
       })
       .then((games) => {
