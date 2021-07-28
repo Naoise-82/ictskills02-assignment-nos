@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
 export default function FilterGamesCard(props) {
   const classes = useStyles();
   const [genres, setGenres ] = useState([{ id: '0', name: 'All'}]);
-
+  
   /*const genres = [
     {id: 31, name: "Adventure"},
     {id: 8, name: "Platform"},
@@ -48,11 +48,13 @@ export default function FilterGamesCard(props) {
       data: "fields *;limit 25;"
     })
       .then(response => {
-        console.log(response.data);
+        //console.log(response.data);
         return response.data;
       })
-      .then(apiGenres => {
-        setGenres(genres[0], ...apiGenres);
+      .then(genres => {
+        setGenres(genres);
+        genres.unshift({ id: "0", name: "All"})
+        //console.log("Genres: "+genres);
       })
       .catch(err => {
         console.error(err);
@@ -68,8 +70,9 @@ export default function FilterGamesCard(props) {
   const handleTextChange = e => {
     handleChange(e, "name", e.target.value)
   };
+
   const handleGenreChange = e => {
-    handleChange(e, "genres", e.target.value)
+    handleChange(e, "genre", e.target.value)
   };
 
   return (

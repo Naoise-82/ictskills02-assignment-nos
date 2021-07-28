@@ -46,7 +46,7 @@ const GameListPage = (props) => {
       data: "fields id,cover.image_id,first_release_date,franchises.name,game_modes.name,genres.*,name,platforms.platform_logo.image_id,platforms.abbreviation,rating,rating_count,release_dates.y,screenshots.image_id,screenshots.url,summary;where cover!=null & platforms != {6,82} & platforms.platform_logo != null;limit 30;"
     })
       .then(response => {
-        console.log(response.data);
+        //console.log(response.data);
         return response.data;
       })
       .then((games) => {
