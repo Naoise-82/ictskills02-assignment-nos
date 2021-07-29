@@ -23,10 +23,9 @@ const useStyles = makeStyles({
     backgroundSize: 'contain'
   },
   logo: {
-    height: 60,
-    width: 60,
+    height: 70,
     backgroundSize: 'contain',
-    margin: 10
+    margin: 5
   },
   avatar: {
     backgroundColor: "rgb(255, 0, 0)",

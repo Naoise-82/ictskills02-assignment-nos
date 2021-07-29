@@ -19,18 +19,18 @@ const GameListPage = (props) => {
   const [genreFilter, setGenreFilter] = useState("0");
 
   const genreId = Number(genreFilter);
-  console.log("Genre Filter: " + genreFilter);
-  console.log("Genre ID: " + genreId);
+  //console.log("Genre Filter: " + genreFilter);
+  //console.log("Genre ID: " + genreId);
 
   let displayedGames = games
     .filter((g) => {
       return g.name.toLowerCase().search(nameFilter.toLowerCase()) !== -1;
     })
     .filter((g) => {
-      return genreId > 0 ? g.genres[0].id === genreId : true;
+      return genreId > 0 ? g.genres.find( ({ id }) => id === genreId) : true;
     });
 
-  console.log(displayedGames);
+  //console.log(displayedGames);
 
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
