@@ -19,8 +19,6 @@ const GameListPage = (props) => {
   const [genreFilter, setGenreFilter] = useState("0");
 
   const genreId = Number(genreFilter);
-  //console.log("Genre Filter: " + genreFilter);
-  //console.log("Genre ID: " + genreId);
 
   let displayedGames = games
     .filter((g) => {
@@ -30,11 +28,16 @@ const GameListPage = (props) => {
       return genreId > 0 ? g.genres.find( ({ id }) => id === genreId) : true;
     });
 
-  //console.log(displayedGames);
-
   const handleChange = (type, value) => {
     if (type === "name") setNameFilter(value);
     else setGenreFilter(value);
+  };
+
+  const addToCollection = (gameId) => {
+    const updatedGames = games.map((m) =>
+      m.id === gameId ? { ...m, collection: true } : m
+    );
+    setGames(updatedGames);
   };
 
   //API call
@@ -76,7 +79,7 @@ const GameListPage = (props) => {
         />
       </Grid>
       <Grid item container spacing={3}>
-        <GameList games={displayedGames}></GameList>
+        <GameList games={displayedGames} selectCollection={addToCollection}></GameList>
       </Grid>
     </Grid>
   );

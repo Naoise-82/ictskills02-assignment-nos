@@ -1,8 +1,9 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
 import HomePage from "./pages/homePage";
-import GameDetailsPage from "./pages/gameDetailsPage"
+import GameDetailsPage from "./pages/gameDetailsPage";
+import GameCollectionPage from "./pages/gameCollectionPage";
 
 /*const sample =
 {
@@ -181,7 +182,16 @@ import GameDetailsPage from "./pages/gameDetailsPage"
 const App = () => {
   return (
     <BrowserRouter>
+      <ul>
+        <li>
+          <Link to="/">Browse All Games</Link>
+        </li>
+        <li>
+          <Link to="/games/collection">My Collection</Link>
+        </li>
+      </ul>
       <Switch>
+        <Route exact path="/games/collection" component={GameCollectionPage} />
         <Route path="/movies/:id" component={GameDetailsPage} />
         <Route path="/" component={HomePage} />
         <Redirect from="*" to="/" />

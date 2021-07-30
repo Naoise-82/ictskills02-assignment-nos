@@ -9,10 +9,12 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
+import LibraryAddCheckIcon from '@material-ui/icons/LibraryAddCheck';
 import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import { Tooltip } from "@material-ui/core";
 import platform_placeholder from "../../images/platform-placeholder.png";
+import Avatar from "@material-ui/core/Avatar";
 
 const useStyles = makeStyles({
   card: {
@@ -28,18 +30,34 @@ const useStyles = makeStyles({
     margin: 5
   },
   avatar: {
-    backgroundColor: "rgb(255, 0, 0)",
+    backgroundColor: "rgb(0, 255, 0)",
+    colour: "green"
   },
 });
 
 export default function GameCard(props) {
   const classes = useStyles();
   const game = props.game;
+
+  const handleAddToCollection = (e) => {
+    e.preventDefault();
+    props.selectCollection(game.id);
+  };
+
   return (
     <Card className={classes.card}>
       <Grid container>
         <Grid item xs={9}>
-          <CardHeader className={classes.header} title={
+          <CardHeader
+          className={classes.header}
+          avatar={
+            game.collection ? (
+              <Avatar className={classes.avatar}>
+                <LibraryAddCheckIcon />
+              </Avatar>
+            ) : null
+          }
+          title={
             <Typography variant="h6" component="p">
               {game.name}
             </Typography>
@@ -74,7 +92,7 @@ export default function GameCard(props) {
       </CardContent>
       <CardActions>
         <Tooltip title="Add to my collection" >
-          <IconButton aria-label="add to my collection" onClick={null}>
+          <IconButton aria-label="add to my collection" onClick={handleAddToCollection}>
             <LibraryAddIcon color="primary" fontSize="large" />
           </IconButton>
         </Tooltip>

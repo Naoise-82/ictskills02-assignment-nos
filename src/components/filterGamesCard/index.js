@@ -80,7 +80,7 @@ export default function FilterGamesCard(props) {
       <CardContent>
         <Typography variant="h5" component="h1">
           <SearchIcon fontSize="large" />
-          Filter the Games.
+          Filter the Games
         </Typography>
         <TextField
           className={classes.formControl}
