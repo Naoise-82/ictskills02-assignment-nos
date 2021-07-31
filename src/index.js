@@ -192,7 +192,7 @@ const App = () => {
       </ul>
       <Switch>
         <Route exact path="/games/collection" component={GameCollectionPage} />
-        <Route path="/movies/:id" component={GameDetailsPage} />
+        <Route path="/games/:id" component={GameDetailsPage} />
         <Route path="/" component={HomePage} />
         <Redirect from="*" to="/" />
       </Switch>
