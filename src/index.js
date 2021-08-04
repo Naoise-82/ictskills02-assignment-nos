@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
 import HomePage from "./pages/homePage";
-import GameDetailsPage from "./pages/gameDetailsPage";
+import GamePage from "./pages/gameDetailsPage";
 import GameCollectionPage from "./pages/gameCollectionPage";
 
 /*const sample =
@@ -192,7 +192,7 @@ const App = () => {
       </ul>
       <Switch>
         <Route exact path="/games/collection" component={GameCollectionPage} />
-        <Route path="/games/:id" component={GameDetailsPage} />
+        <Route path="/games/:id" component={GamePage} />
         <Route path="/" component={HomePage} />
         <Redirect from="*" to="/" />
       </Switch>

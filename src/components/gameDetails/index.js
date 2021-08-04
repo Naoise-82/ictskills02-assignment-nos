@@ -38,13 +38,13 @@ const GameDetails = (props) => {
         Summary
       </Typography>
       <Typography className={classes.summary} variant="h6" component="p">
-        {game.summary}
+        {game[0].summary}
       </Typography>
       <div component="ul" className={classes.root}>
         <li>
           <Chip variant="outlined" label="Platforms" className={classes.chip} color="primary" />
         </li>
-        {game.platforms.map((g) => (
+        {game[0].platforms.map((g) => (
           <li key={g.id}>
             <Chip label={g.abbreviation} className={classes.chip} />
           </li>
@@ -54,7 +54,7 @@ const GameDetails = (props) => {
         <li>
           <Chip label="Genres" className={classes.chip} color="primary" />
         </li>
-        {game.genres.map((g) => (
+        {game[0].genres.map((g) => (
           <li key={g.id}>
             <Chip label={g.name} className={classes.chip} />
           </li>
@@ -62,9 +62,9 @@ const GameDetails = (props) => {
       </div>
       <div component="ul" className={classes.root}>
         <Chip
-          label={`Rating: ${Math.round(game.rating*100)/100} (${game.rating_count} votes)`} className={classes.chip}
+          label={`Rating: ${Math.round(game[0].rating*100)/100} (${game.rating_count} votes)`} className={classes.chip}
         />
-        <Chip label={`Originally Released: ${game.release_dates[0].y} (${game.platforms[0].abbreviation})` }  className={classes.chip}/>
+        <Chip label={`Originally Released: ${game[0].release_dates[0].y} (${game[0].platforms[0].abbreviation})` }  className={classes.chip}/>
         </div>
 
       <Fab
@@ -78,4 +78,4 @@ const GameDetails = (props) => {
       </>
   );
 };
-export default  GameDetails ;
+export default GameDetails;

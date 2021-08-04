@@ -30,12 +30,14 @@ const GamePage = (props) => {
   const [game, setGame] = useState(null);
 
   useEffect(() => {
-    getGame(id).then((game) => {
+    getGame(id).then(game => {
       setGame(game);
     });
-    
-  }, [id]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[id]);
 
+  console.log(game);
+  //console.log(game[0].screenshots[0].image_id)
 
   return (
     <>
@@ -44,19 +46,19 @@ const GamePage = (props) => {
           <GameHeader game={game} />
           <Grid className={classes.root} container spacing={5}>
             <Grid item xs={2}>
-                <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game.cover.image_id}.jpg`} alt="" />
+              <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game[0].cover.image_id}.jpg`} alt="" />
             </Grid>
             <Grid item xs={10}>
-             {/*} <div className={classes.root}>
+              <div className={classes.root}>
                 <ImageList className={classes.imageList} cols={4}>
-                  {screenshots.map((i) => (
+                  {game[0].screenshots.map((i) => (
                     <ImageListItem key={i.id}>
-                      <img src={`https://images.igdb.com/igdb/image/upload/t_screenshot_med/${i}`}
-                        alt={i.poster_path} />
+                      <img src={`https://images.igdb.com/igdb/image/upload/t_screenshot_med/${i.image_id}.jpg`}
+                        alt="" />
                     </ImageListItem>
                   ))}
                 </ImageList>
-                  </div>*/}
+                  </div>
               <GameDetails className={classes.root} game={game} />
             </Grid>
           </Grid>

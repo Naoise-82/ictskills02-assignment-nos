@@ -26,8 +26,8 @@ const GameHeader = (props) => {
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
       <Typography variant="h4" component="h3">
-        {game.name}
-        {game.franchises.map((f) => (
+        {game[0].name}
+        {game[0].franchises.map((f) => (
           <Typography variant="h5" key={f.id}><b>Franchise:</b> {f.name}</Typography>
         ))}
       </Typography>
