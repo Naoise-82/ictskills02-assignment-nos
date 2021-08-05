@@ -1,9 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { BrowserRouter, Route, Redirect, Switch, Link } from "react-router-dom";
+import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import HomePage from "./pages/homePage";
 import GamePage from "./pages/gameDetailsPage";
 import GameCollectionPage from "./pages/gameCollectionPage";
+import SiteHeader from './components/siteHeader';
 
 /*const sample =
 {
@@ -182,14 +183,7 @@ import GameCollectionPage from "./pages/gameCollectionPage";
 const App = () => {
   return (
     <BrowserRouter>
-      <ul>
-        <li>
-          <Link to="/">Browse All Games</Link>
-        </li>
-        <li>
-          <Link to="/games/collection">My Collection</Link>
-        </li>
-      </ul>
+      <SiteHeader />
       <Switch>
         <Route exact path="/games/collection" component={GameCollectionPage} />
         <Route path="/games/:id" component={GamePage} />

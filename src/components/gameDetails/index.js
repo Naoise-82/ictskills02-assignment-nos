@@ -1,7 +1,5 @@
 import React from "react";
 import Chip from "@material-ui/core/Chip";
-import NavigationIcon from "@material-ui/icons/Navigation";
-import Fab from "@material-ui/core/Fab";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -16,7 +14,8 @@ const useStyles = makeStyles((theme) => ({
   },
   summary: {
     	marginLeft: 10,
-      paddingLeft: 15
+      paddingLeft: 15,
+      marginBottom: 10,
   },
   chip: {
     margin: theme.spacing(0.5),
@@ -34,8 +33,8 @@ const GameDetails = (props) => {
 
   return (
     <>
-      <Typography className={classes.summary} variant="h5" component="h3">
-        Summary
+      <Typography className={classes.summary} variant="h4">
+        <b>Summary</b>
       </Typography>
       <Typography className={classes.summary} variant="h6" component="p">
         {game[0].summary}

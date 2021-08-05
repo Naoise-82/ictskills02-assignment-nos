@@ -3,12 +3,10 @@ import GameHeader from "../components/gameHeader/";
 import GameDetails from "../components/gameDetails";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-//import GridList from "@material-ui/core/GridList";
-//import GridListTile from "@material-ui/core/GridListTile";
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
-//import { getGame } from "../api/igdb-api";
 import useGame from "../hooks/useGame";
+import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -23,6 +21,9 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "nowrap",
     transform: "translateZ(0)",
   },
+  heading: {
+    justifyContent: "left"
+  }
 }));
 
 const GamePage = (props) => {
@@ -37,12 +38,16 @@ const GamePage = (props) => {
       {game ? (
         <>
           <GameHeader game={game} />
+
           <Grid className={classes.root} container spacing={5}>
             <Grid item xs={2}>
               <img src={`https://images.igdb.com/igdb/image/upload/t_cover_big/${game[0].cover.image_id}.jpg`} alt="" />
             </Grid>
             <Grid item xs={10}>
               <div className={classes.root}>
+                <Typography className={classes.heading} variant="h4">
+                  <b>Screenshots</b>
+                </Typography>
                 <ImageList className={classes.imageList} cols={4}>
                   {game[0].screenshots.map((i) => (
                     <ImageListItem key={i.id}>
@@ -51,7 +56,7 @@ const GamePage = (props) => {
                     </ImageListItem>
                   ))}
                 </ImageList>
-                  </div>
+              </div>
               <GameDetails className={classes.root} game={game} />
             </Grid>
           </Grid>
