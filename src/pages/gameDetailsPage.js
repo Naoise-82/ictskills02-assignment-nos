@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import GameHeader from "../components/gameHeader/";
 import GameDetails from "../components/gameDetails";
 import Grid from "@material-ui/core/Grid";
@@ -7,7 +7,8 @@ import { makeStyles } from "@material-ui/core/styles";
 //import GridListTile from "@material-ui/core/GridListTile";
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
-import { getGame } from "../api/igdb-api";
+//import { getGame } from "../api/igdb-api";
+import useGame from "../hooks/useGame";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,17 +28,9 @@ const useStyles = makeStyles((theme) => ({
 const GamePage = (props) => {
   const classes = useStyles();
   const { id } = props.match.params;
-  const [game, setGame] = useState(null);
-
-  useEffect(() => {
-    getGame(id).then(game => {
-      setGame(game);
-    });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  },[id]);
+  const [game] = useGame(id);
 
   console.log(game);
-  //console.log(game[0].screenshots[0].image_id)
 
   return (
     <>

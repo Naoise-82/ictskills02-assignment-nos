@@ -40,6 +40,9 @@ const GameDetails = (props) => {
       <Typography className={classes.summary} variant="h6" component="p">
         {game[0].summary}
       </Typography>
+
+      {/* STICK THE GAME VIDEO IN HERE */}
+      
       <div component="ul" className={classes.root}>
         <li>
           <Chip variant="outlined" label="Platforms" className={classes.chip} color="primary" />
@@ -67,14 +70,14 @@ const GameDetails = (props) => {
         <Chip label={`Originally Released: ${game[0].release_dates[0].y} (${game[0].platforms[0].abbreviation})` }  className={classes.chip}/>
         </div>
 
-      <Fab
+      {/* <Fab
         color="secondary"
         variant="extended"
         className={classes.fab}
       >
         <NavigationIcon />
         Reviews
-      </Fab>
+      </Fab> */}
       </>
   );
 };
