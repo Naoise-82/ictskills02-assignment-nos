@@ -17,7 +17,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const GameHeader = ({ game, history}) => {
+const GameHeader = ({ game, history }) => {
+  console.log(game[0]);
   const classes = useStyles();
 
   return (
@@ -27,9 +28,9 @@ const GameHeader = ({ game, history}) => {
       </IconButton>
       <Typography variant="h4" component="h3">
         {game[0].name}
-        {game[0].franchises.map((f) => (
+        Franchises: {game[0].franchises ? game[0].franchises.map((f) => (
           <Typography variant="h5" key={f.id}><b>Franchise:</b> {f.name}</Typography>
-        ))}
+        )) : <Typography variant="h5"><b>Franchise:</b> N/A</Typography>}
       </Typography>
       <IconButton aria-label="go forward" onClick={() => history.goForward()}>
         <ArrowForwardIcon color="primary" fontSize="large" />

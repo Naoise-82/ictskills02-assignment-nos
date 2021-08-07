@@ -1,26 +1,32 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PageTemplate from "../components/gameListPageTemplate";
 import { getGames } from "../api/igdb-api";
+import Spinner from '../components/spinner'
+import { useQuery } from 'react-query';
 
 const HomePage = (props) => {
-  const [games, setGames] = useState([]);
-  const collection = games.filter(g => g.collection)
-  localStorage.setItem('collection', JSON.stringify(collection))
+  const { data, error, isLoading, isError} = useQuery('browse', getGames);
 
-  const addToCollection = (gameId) => {
+  if (isLoading) {
+    return <Spinner />
+  }
+
+  if (isError) {
+    return <h1>{error.message}</h1>
+  }
+  console.log("Homepage data: " + data)
+  const games = data;
+
+  const collection = games.filter(g => g.collection);
+  localStorage.setItem('collection', JSON.stringify(collection));
+  const addToCollection = (gameId) => true;
+
+  /*const addToCollection = (gameId) => {
     const updatedGames = games.map((g) =>
       g.id === gameId ? { ...g, collection: true } : g
     );
     setGames(updatedGames);
-  };
-
-  //API call
-  useEffect(() => {
-    getGames().then(games => {
-      setGames(games);
-    })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  };*/
 
   return (
     <PageTemplate

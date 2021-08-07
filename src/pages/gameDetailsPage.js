@@ -5,8 +5,11 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import ImageList from '@material-ui/core/ImageList';
 import ImageListItem from '@material-ui/core/ImageListItem';
-import useGame from "../hooks/useGame";
+// import useGame from "../hooks/useGame";
 import { Typography } from "@material-ui/core";
+import { getGame } from '../api/igdb-api';
+import { useQuery } from "react-query";
+import Spinner from '../components/spinner';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,16 +25,30 @@ const useStyles = makeStyles((theme) => ({
     transform: "translateZ(0)",
   },
   heading: {
-    justifyContent: "left"
+    justifyContent: "center",
   }
 }));
 
 const GamePage = (props) => {
   const classes = useStyles();
   const { id } = props.match.params;
-  const [game] = useGame(id);
+  // const [game] = useGame(id);
 
-  console.log(game);
+  const { data: game, error, isLoading, isError } = useQuery(
+    ["game", { id: id }],
+    getGame
+  );
+
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (isError) {
+    return <h1>{error.message}</h1>;
+  }
+
+
+  //console.log(game[0]);
 
   return (
     <>
