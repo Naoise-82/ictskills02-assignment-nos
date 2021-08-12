@@ -10,6 +10,7 @@ import { Typography } from "@material-ui/core";
 import { getGame } from '../api/igdb-api';
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner';
+import { withRouter } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const GamePage = (props) => {
+const GameDetailsPage = (props) => {
   const classes = useStyles();
   const { id } = props.match.params;
   // const [game] = useGame(id);
@@ -85,4 +86,4 @@ const GamePage = (props) => {
   );
 };
 
-export default GamePage;
+export default withRouter(GameDetailsPage);

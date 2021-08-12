@@ -27,7 +27,7 @@ export const getGames = async () => {
     },
     data: "fields id,cover.image_id,game_modes.name,genres.*,name,platforms.platform_logo.image_id,platforms.abbreviation,rating,rating_count,release_dates.y;where cover!=null & platforms != {6,82} & platforms.platform_logo != null;limit 30;"
   });
-  console.log(response.data);
+  //console.log(response.data);
 
   /*if (!response.ok) {
      throw new Error("something went wrong");

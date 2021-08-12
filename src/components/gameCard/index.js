@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useContext } from "react";
+import { GamesContext } from '../../contexts/gamesContext';
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
@@ -35,13 +36,19 @@ const useStyles = makeStyles({
   },
 });
 
-export default function GameCard(props) {
+export default function GameCard({ game }) {
   const classes = useStyles();
-  const game = props.game;
+  const { collection, addToCollection } = useContext(GamesContext);
+
+  if (collection.find((id) => id === game.id)) {
+    game.collection = true;
+  } else {
+    game.collection = false
+  }
 
   const handleAddToCollection = (e) => {
     e.preventDefault();
-    props.selectCollection(game.id);
+    addToCollection(game);
   };
 
   return (

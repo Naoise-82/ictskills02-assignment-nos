@@ -17,6 +17,9 @@ const GameListPageTemplate = ({ games, title, selectCollection }) => {
   const [genreFilter, setGenreFilter] = useState("0");
   const genreId = Number(genreFilter);
 
+  console.log("GameList Template Page:");
+  console.log(games);
+
   let displayedGames = games
     .filter((g) => {
       return g.name.toLowerCase().search(nameFilter.toLowerCase()) !== -1;

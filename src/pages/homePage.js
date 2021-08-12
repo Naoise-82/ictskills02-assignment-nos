@@ -14,19 +14,12 @@ const HomePage = (props) => {
   if (isError) {
     return <h1>{error.message}</h1>
   }
-  console.log("Homepage data: " + data)
+  console.log("Homepage data: " + data);
   const games = data;
 
   const collection = games.filter(g => g.collection);
   localStorage.setItem('collection', JSON.stringify(collection));
   const addToCollection = (gameId) => true;
-
-  /*const addToCollection = (gameId) => {
-    const updatedGames = games.map((g) =>
-      g.id === gameId ? { ...g, collection: true } : g
-    );
-    setGames(updatedGames);
-  };*/
 
   return (
     <PageTemplate

@@ -1,8 +1,9 @@
 import React from "react";
+import GameContextProvider from './contexts/gamesContext';
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import HomePage from "./pages/homePage";
-import GamePage from "./pages/gameDetailsPage";
+import GameDetailsPage from "./pages/gameDetailsPage";
 import GameCollectionPage from "./pages/gameCollectionPage";
 import SiteHeader from './components/siteHeader';
 import { QueryClientProvider, QueryClient } from "react-query";
@@ -24,12 +25,14 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <BrowserRouter>
         <SiteHeader />
-        <Switch>
-          <Route exact path="/games/collection" component={GameCollectionPage} />
-          <Route path="/games/:id" component={GamePage} />
-          <Route path="/" component={HomePage} />
-          <Redirect from="*" to="/" />
-        </Switch>
+        <GameContextProvider>
+          <Switch>
+            <Route exact path="/games/collection" component={GameCollectionPage} />
+            <Route path="/games/:id" component={GameDetailsPage} />
+            <Route path="/" component={HomePage} />
+            <Redirect from="*" to="/" />
+          </Switch>
+        </GameContextProvider>
       </BrowserRouter>
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
