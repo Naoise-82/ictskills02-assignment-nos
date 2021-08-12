@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   },
 });
 
-const GameListPageTemplate = ({ games, title, selectCollection }) => {
+function GameListPageTemplate({ games, title, action }) {
   const classes = useStyles();
   const [nameFilter, setNameFilter] = useState("");
   const [genreFilter, setGenreFilter] = useState("0");
@@ -47,7 +47,7 @@ const GameListPageTemplate = ({ games, title, selectCollection }) => {
         />
       </Grid>
       <Grid item container spacing={3}>
-        <GameList games={displayedGames} selectCollection={selectCollection}></GameList>
+        <GameList action={action} games={displayedGames}></GameList>
       </Grid>
     </Grid>
   );

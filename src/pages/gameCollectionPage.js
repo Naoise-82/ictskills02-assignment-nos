@@ -4,6 +4,7 @@ import { GamesContext } from "../contexts/gamesContext";
 import { useQueries } from 'react-query';
 import { getGame } from '../api/igdb-api';
 import Spinner from '../components/spinner';
+import RemoveFromCollection from "../components/cardIcons/removeFromCollection";
 
 const GameCollectionPage = () => {
   const { collection: gameIds } = useContext(GamesContext);
@@ -29,13 +30,18 @@ const GameCollectionPage = () => {
 
   console.log("Game Collection Page Games:");
   console.log(games);
-  const toDo = () => true;
 
   return (
     <PageTemplate
       title="My Game Collection"
       games={games}
-      selectCollection={toDo}
+      action={(game) => {
+        return (
+          <>
+            <RemoveFromCollection game={game} />
+          </>
+        );
+      }}
     />
   );
 };

@@ -9,11 +9,8 @@ import CardMedia from "@material-ui/core/CardMedia";
 import CardHeader from "@material-ui/core/CardHeader";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 import LibraryAddCheckIcon from '@material-ui/icons/LibraryAddCheck';
-import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
-import { Tooltip } from "@material-ui/core";
 import platform_placeholder from "../../images/platform-placeholder.png";
 import Avatar from "@material-ui/core/Avatar";
 
@@ -36,20 +33,15 @@ const useStyles = makeStyles({
   },
 });
 
-export default function GameCard({ game }) {
+export default function GameCard({ game, action }) {
   const classes = useStyles();
-  const { collection, addToCollection } = useContext(GamesContext);
+  const { collection } = useContext(GamesContext);
 
   if (collection.find((id) => id === game.id)) {
     game.collection = true;
   } else {
     game.collection = false
   }
-
-  const handleAddToCollection = (e) => {
-    e.preventDefault();
-    addToCollection(game);
-  };
 
   return (
     <Card className={classes.card}>
@@ -98,11 +90,7 @@ export default function GameCard({ game }) {
         </Grid>
       </CardContent>
       <CardActions>
-        <Tooltip title="Add to my collection" >
-          <IconButton aria-label="add to my collection" onClick={handleAddToCollection}>
-            <LibraryAddIcon color="primary" fontSize="large" />
-          </IconButton>
-        </Tooltip>
+        {action(game)}
         <Link to={`/games/${game.id}`}>
           <Button variant="outlined" size="medium" color="primary">
             More Details...

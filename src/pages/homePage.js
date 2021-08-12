@@ -3,6 +3,7 @@ import PageTemplate from "../components/gameListPageTemplate";
 import { getGames } from "../api/igdb-api";
 import Spinner from '../components/spinner'
 import { useQuery } from 'react-query';
+import AddToCollectionIcon from "../components/cardIcons/addToCollection";
 
 const HomePage = (props) => {
   const { data, error, isLoading, isError} = useQuery('browse', getGames);
@@ -19,13 +20,15 @@ const HomePage = (props) => {
 
   const collection = games.filter(g => g.collection);
   localStorage.setItem('collection', JSON.stringify(collection));
-  const addToCollection = (gameId) => true;
+  //const addToCollection = (gameId) => true;
 
   return (
     <PageTemplate
       title='Browse All Games'
       games={games}
-      selectCollection={addToCollection}
+      action={(game) => {
+        return <AddToCollectionIcon game={game} />
+      }}
     />
   );
 };
