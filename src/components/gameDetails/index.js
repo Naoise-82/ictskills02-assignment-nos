@@ -70,15 +70,6 @@ const GameDetails = (props) => {
         />
         <Chip label={`Originally Released: ${game[0].release_dates[0].y} (${game[0].platforms[0].abbreviation})`} className={classes.chip} />
       </div>
-
-      {/* <Fab
-        color="secondary"
-        variant="extended"
-        className={classes.fab}
-      >
-        <NavigationIcon />
-        Reviews
-      </Fab> */}
     </>
   );
 };

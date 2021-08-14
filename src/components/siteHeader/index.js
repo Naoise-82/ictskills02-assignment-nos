@@ -29,9 +29,9 @@ const SiteHeader = ( { history }) => {
 
   const menuOptions = [
     { label: "Home", path: "/" },
+    { label: "Consoles", path: "/" },
     { label: "My Collection", path: "/games/collection" },
-    { label: "Option 3", path: "/" },
-    { label: "Option 4", path: "/" },
+    { label: "Progress Tracker", path: "/" },
   ];
 
   const handleMenuSelect = (pageURL) => {
