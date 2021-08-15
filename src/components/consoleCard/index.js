@@ -9,11 +9,10 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import platform_placeholder from "../../images/platform-placeholder.png";
 
 const useStyles = makeStyles({
   card: {
-    maxHeight: 3000,
+    maxHeight: 400,
     width: 300
   },
   media: {
@@ -32,7 +31,6 @@ const useStyles = makeStyles({
 
 export default function ConsoleCard({ gameConsole }) {
   const classes = useStyles();
-  console.log(gameConsole.versions[1]);
 
   return (
     <Card className={classes.card}>
@@ -59,8 +57,8 @@ export default function ConsoleCard({ gameConsole }) {
         {<Typography>
           <b>Generation: </b> {gameConsole.generation} <br/>
           <b>Platform Family:</b> {gameConsole.platform_family.name} <br></br>
-          <b>Initially Released: </b> {console.versions ? 
-          console.versions[0].platform_version_release_dates[0].y : "N/A"}
+          <b>Initially Released:</b> {gameConsole.versions[0].platform_version_release_dates ? 
+          gameConsole.versions[0].platform_version_release_dates[0].y : "N/A"}
           
         </Typography>}
       </CardContent>

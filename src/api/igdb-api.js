@@ -31,20 +31,6 @@ export const getGames = async () => {
   return response.data;
 };
 
-/*export const getConsoles = async () => {
-  const response = await axios({
-    url: "http://localhost:4000/fetch/https://api.igdb.com/v4/platforms",
-    method: 'POST',
-    headers: {
-      'Accept': 'application/json',
-      'Client-ID': process.env.REACT_APP_TWITCH_CLIENT_ID,
-      'Authorization': `Bearer ${process.env.REACT_APP_TWITCH_ACCESS_TOKEN}`,
-    },
-    data: "fields abbreviation,name,platform_family.name,platform_logo.image_id,summary;where category=1;limit 30"
-  });
-  return response.data;
-};*/
-
 export const getGenres = async () => {
   const response = await axios({
     url: "http://localhost:4000/fetch/https://api.igdb.com/v4/genres",
@@ -58,3 +44,31 @@ export const getGenres = async () => {
   })
   return response.data;
 }
+
+export const getConsoles = async () => {
+  const response = await axios({
+    url: "http://localhost:4000/fetch/https://api.igdb.com/v4/platforms",
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Client-ID': process.env.REACT_APP_TWITCH_CLIENT_ID,
+      'Authorization': `Bearer ${process.env.REACT_APP_TWITCH_ACCESS_TOKEN}`,
+    },
+    data: "fields abbreviation,name,platform_family.name,platform_logo.image_id,summary,generation,versions.platform_version_release_dates.y;where category=1 & platform_logo != null & platform_family != null & versions.platform_version_release_dates != null;limit 30;"
+  });
+  return response.data;
+};
+
+export const getPlatformFamilies = async () => {
+  const response = await axios({
+    url: "http://localhost:4000/fetch/https://api.igdb.com/v4/platform_families",
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Client-ID': process.env.REACT_APP_TWITCH_CLIENT_ID,
+      'Authorization': `Bearer ${process.env.REACT_APP_TWITCH_ACCESS_TOKEN}`,
+    },
+    data: "fields name;"
+  });
+  return response.data;
+};
