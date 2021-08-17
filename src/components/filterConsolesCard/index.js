@@ -7,7 +7,7 @@ import Typography from "@material-ui/core/Typography";
 import InputLabel from "@material-ui/core/InputLabel";
 import MenuItem from "@material-ui/core/MenuItem";
 import TextField from "@material-ui/core/TextField";
-import SearchIcon from "@material-ui/icons/Search";
+import FilterListIcon from "@material-ui/icons/FilterList";
 import FormControl from "@material-ui/core/FormControl";
 import Select from "@material-ui/core/Select";
 import { useQuery } from "react-query";
@@ -78,7 +78,7 @@ export default function FilterConsolesCard(props) {
     <Card className={classes.root} variant="outlined">
       <CardContent>
         <Typography variant="h5" component="h1">
-          <SearchIcon fontSize="large" />
+          <FilterListIcon fontSize="large" />
           Filter Consoles
         </Typography>
         <TextField
