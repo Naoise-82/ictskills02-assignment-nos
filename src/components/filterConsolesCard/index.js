@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-//import CardMedia from "@material-ui/core/CardMedia";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import InputLabel from "@material-ui/core/InputLabel";
@@ -55,7 +54,7 @@ export default function FilterConsolesCard(props) {
     {id: 8, name: "Eighth (2012-2020"},
     {id: 9, name: "Ninth (2020-Present)"}
   ]
-  platformFamilies.unshift({ id: "0", name: "All" })
+  if(platformFamilies[0].name !== "All") platformFamilies.unshift({ id: "0", name: "All" })
 
   const handleChange = (e, type, value) => {
     e.preventDefault()

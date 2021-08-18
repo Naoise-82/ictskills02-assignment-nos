@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
     minWidth: 220,
     backgroundColor: "rgb(255, 255, 255)",
   },
+  white: {
+    backgroundColor: "white"
+  }
 }));
 
 export default function FilterGamesCard(props) {
@@ -46,8 +49,8 @@ export default function FilterGamesCard(props) {
 
   }
 
-  genres.unshift({ id: "0", name: "All" });
-  platforms.unshift({ id: "0", name: "All" });
+  if(genres[0].name !== "All") genres.unshift({ id: "0", name: "All" });
+  if(platforms[0].name !== "All") platforms.unshift({ id: "0", name: "All" });
 
   const handleChange = (e, type, value) => {
     e.preventDefault()

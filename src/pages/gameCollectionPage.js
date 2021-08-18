@@ -34,7 +34,7 @@ const GameCollectionPage = () => {
   return (
     <PageTemplate
       title="My Game Collection"
-      games={games}
+      gameConsoles={games}
       action={(game) => {
         return (
           <>

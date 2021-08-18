@@ -29,7 +29,7 @@ const SiteHeader = ( { history }) => {
 
   const menuOptions = [
     { label: "Home", path: "/" },
-    { label: "Consoles", path: "/" },
+    { label: "Consoles", path: "/consoles" },
     { label: "My Collection", path: "/games/collection" },
     { label: "Progress Tracker", path: "/" },
   ];

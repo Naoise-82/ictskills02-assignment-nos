@@ -54,7 +54,7 @@ export const getConsoles = async () => {
       'Client-ID': process.env.REACT_APP_TWITCH_CLIENT_ID,
       'Authorization': `Bearer ${process.env.REACT_APP_TWITCH_ACCESS_TOKEN}`,
     },
-    data: "fields abbreviation,name,platform_family.name,platform_logo.image_id,summary,generation,versions.platform_version_release_dates.y;where category=1 & platform_logo != null & platform_family != null & versions.platform_version_release_dates != null;limit 30;"
+    data: "fields abbreviation,name,platform_family.name,platform_logo.image_id,summary,generation,versions.platform_version_release_dates.y;where category=1 & platform_logo != null & platform_family != null & versions.platform_version_release_dates != null;limit 50;"
   });
   return response.data;
 };

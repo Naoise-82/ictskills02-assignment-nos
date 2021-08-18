@@ -25,7 +25,7 @@ const HomePage = (props) => {
   return (
     <PageTemplate
       title='Browse All Games'
-      games={games}
+      gameConsoles={games}
       action={(game) => {
         return <AddToCollectionIcon game={game} />
       }}

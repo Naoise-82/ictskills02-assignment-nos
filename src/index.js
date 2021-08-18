@@ -5,6 +5,8 @@ import { BrowserRouter, Route, Redirect, Switch } from "react-router-dom";
 import HomePage from "./pages/homePage";
 import GameDetailsPage from "./pages/gameDetailsPage";
 import GameCollectionPage from "./pages/gameCollectionPage";
+import ConsoleListPage from "./pages/consoleListPage";
+import ConsoleDetailsPage from "./pages/consoleDetailsPage";
 import SiteHeader from './components/siteHeader';
 import { QueryClientProvider, QueryClient } from "react-query";
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -29,6 +31,8 @@ const App = () => {
           <Switch>
             <Route exact path="/games/collection" component={GameCollectionPage} />
             <Route path="/games/:id" component={GameDetailsPage} />
+            <Route path="/consoles" component={ConsoleListPage} />
+            <Route pathe="/consoles/:id" component={ConsoleDetailsPage} />
             <Route path="/" component={HomePage} />
             <Redirect from="*" to="/" />
           </Switch>

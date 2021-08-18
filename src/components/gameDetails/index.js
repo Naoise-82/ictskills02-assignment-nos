@@ -1,5 +1,6 @@
 import React from "react";
 import Chip from "@material-ui/core/Chip";
+import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -11,6 +12,9 @@ const useStyles = makeStyles((theme) => ({
     listStyle: "none",
     padding: theme.spacing(0.5),
     margin: 0,
+  },
+  card: {
+    margin: theme.spacing(0.5)
   },
   summary: {
     display: "flex",
@@ -35,12 +39,14 @@ const GameDetails = (props) => {
 
   return (
     <>
-      <Typography className={classes.summary} variant="h4">
-        <b>Summary</b>
-      </Typography>
-      <Typography className={classes.summary} variant="h6" component="p">
-        {game[0].summary}
-      </Typography>
+      <Card className={classes.card}>
+        <Typography className={classes.summary} variant="h4">
+          <b>Summary</b>
+        </Typography>
+        <Typography className={classes.summary} variant="h6" component="p">
+          {game[0].summary}
+        </Typography>
+      </Card>
 
       {/* STICK THE GAME VIDEO IN HERE */}
 

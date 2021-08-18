@@ -27,10 +27,10 @@ const GameHeader = ({ game, history }) => {
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
       <Typography variant="h4" component="h3">
-        {game[0].name}
-        Franchises: {game[0].franchises ? game[0].franchises.map((f) => (
-          <Typography variant="h5" key={f.id}><b>Franchise:</b> {f.name}</Typography>
-        )) : <Typography variant="h5"><b>Franchise:</b> N/A</Typography>}
+        {game[0].name}<br />
+        {game[0].franchises ? game[0].franchises.map((f) => (
+          <Typography variant="h5" key={f.id}> <b>Franchises: </b>{f.name}</Typography>
+        )) : <Typography variant="h5"><b>Franchises: </b> N/A</Typography>}
       </Typography>
       <IconButton aria-label="go forward" onClick={() => history.goForward()}>
         <ArrowForwardIcon color="primary" fontSize="large" />

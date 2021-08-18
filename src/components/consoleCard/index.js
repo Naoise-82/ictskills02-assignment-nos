@@ -9,11 +9,16 @@ import CardHeader from "@material-ui/core/CardHeader";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import { Chip } from "@material-ui/core";
 
 const useStyles = makeStyles({
   card: {
     maxHeight: 400,
-    width: 300
+    width: 300,
+    backgroundColor: "rgb(220,220,255)"
+  },
+  chip: {
+    margin: 3,
   },
   media: {
     backgroundSize: 'contain'
@@ -21,7 +26,7 @@ const useStyles = makeStyles({
   logo: {
     height: 80,
     backgroundSize: 'contain',
-    margin: 0
+    marginTop: 5
   },
   avatar: {
     backgroundColor: "rgb(0, 255, 0)",
@@ -40,7 +45,6 @@ export default function ConsoleCard({ gameConsole }) {
             title={
               <Typography variant="h5">
                 {gameConsole.name}<br></br>
-                ({gameConsole.abbreviation})
               </Typography>
             }
           />
@@ -55,10 +59,11 @@ export default function ConsoleCard({ gameConsole }) {
       </Grid>
       <CardContent>
         {<Typography>
-          <b>Generation: </b> {gameConsole.generation} <br/>
-          <b>Platform Family:</b> {gameConsole.platform_family.name} <br></br>
-          <b>Initially Released:</b> {gameConsole.versions[0].platform_version_release_dates ? 
-          gameConsole.versions[0].platform_version_release_dates[0].y : "N/A"}
+          <Chip color="primary" className={classes.chip} label={`Abbreviation: ${gameConsole.abbreviation}`} />
+          <Chip color="primary" className={classes.chip} label={`Generation: ${gameConsole.generation}`} />
+          <Chip color="primary" className={classes.chip} label={`Platform Family: ${gameConsole.platform_family.name}`} /> 
+          <Chip color="primary" className={classes.chip} label={`Initially Released: ${gameConsole.versions[0].platform_version_release_dates ? 
+          gameConsole.versions[0].platform_version_release_dates[0].y : "N/A"}`} />
           
         </Typography>}
       </CardContent>

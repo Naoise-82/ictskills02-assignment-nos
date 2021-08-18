@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     transform: "translateZ(0)",
   },
   heading: {
-    justifyContent: "center",
+    justifyContent: "left",
   }
 }));
 
@@ -63,9 +63,6 @@ const GameDetailsPage = (props) => {
             </Grid>
             <Grid item xs={10}>
               <div className={classes.root}>
-                <Typography className={classes.heading} variant="h4">
-                  <b>Screenshots</b>
-                </Typography>
                 <ImageList className={classes.imageList} cols={4}>
                   {game[0].screenshots.map((i) => (
                     <ImageListItem key={i.id}>
