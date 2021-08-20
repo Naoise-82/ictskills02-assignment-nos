@@ -83,8 +83,10 @@ export default function GameCard({ game, action }) {
       <CardContent>
         <Chip className={classes.chip}
           color="primary" label={`Released: ${game.release_dates ? game.release_dates[0].y : "N/A"}`} />
+        <Link to={`/consoles/${game.platforms[0].id}`} >
         <Chip className={classes.chip}
           color="primary" label={`Platform: ${game.platforms ? game.platforms[0].abbreviation : "N/A"}`} />
+          </Link>
       </CardContent>
       <CardActions>
         {action(game)}

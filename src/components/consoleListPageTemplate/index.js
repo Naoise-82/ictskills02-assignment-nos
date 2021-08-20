@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   },
 });
 
-function ConsoleListPageTemplate({ gameConsoles, title, action }) {
+function ConsoleListPageTemplate({ gameConsoles, title }) {
   const classes = useStyles();
   const [nameFilter, setNameFilter] = useState("");
   const [platformFamilyFilter, setPlatformFamilyFilter] = useState("0");
@@ -53,7 +53,7 @@ function ConsoleListPageTemplate({ gameConsoles, title, action }) {
         />
       </Grid>
       <Grid item container spacing={3}>
-        <ConsoleList action={action} gameConsoles={displayedGameConsoles}></ConsoleList>
+        <ConsoleList gameConsoles={displayedGameConsoles}></ConsoleList>
       </Grid>
     </Grid>
   );

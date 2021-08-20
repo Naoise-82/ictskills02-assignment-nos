@@ -15,7 +15,8 @@ const HomePage = (props) => {
   if (isError) {
     return <h1>{error.message}</h1>
   }
-  console.log("Homepage data: " + data);
+  //console.log("Homepage data: ");
+  //console.log(data);
   const games = data;
 
   const collection = games.filter(g => g.collection);
@@ -25,7 +26,7 @@ const HomePage = (props) => {
   return (
     <PageTemplate
       title='Browse All Games'
-      gameConsoles={games}
+      games={games}
       action={(game) => {
         return <AddToCollectionIcon game={game} />
       }}

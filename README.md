@@ -1,70 +1,62 @@
-# Getting Started with Create React App
+# Assignment - ReactJS app.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Name: Naoise O'Sullivan
 
-## Available Scripts
+## Overview.
 
-In the project directory, you can run:
+This app is designed to be similar to the movies app we created in the labs, but using the **Internet Game Database (IDGB)** API to retieve information about video games, consoles and game characters. I have limited the scope of the API calls in the app to retieve games and hardware from consoles, as opposed to all platforms (PC/Mac/Linux, Mobile, Arcade etc.).
 
-### `npm start`
+### User Features
+ 
+ + A *Homepage* similar ot the movies app, with a random list of 30 games
+ + A *Game Collection Page* simialr to the *Favourite movies* page fomr the movies app. I had intebded to use a POST request to teh API to add these to a personal list on my account with IGDB, but I disvoverd that
+ + Feature 3
+ + etc
+ + etc
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Setup requirements.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+...... A brief explanation (to a third party) of any non-standard setup steps necessary to run your app/client locally (after cloning the repo) ........
 
-### `npm test`
+## API Data Model.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+..... [For non-Movies Fan app] Insert a diagram of the API's data model (see example below) AND/OR a sample(s) of the JSON documents returned by its endpoints ........
 
-### `npm run build`
+![][model]
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+......[For the Movies Fan app] Specify the additional TMDB endpoints used and show sample responses, in JSON .........
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## App Design.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Component catalogue.
 
-### `npm run eject`
+....... Insert a screenshot from the Storybook UI showing your component catalogue. [For the Movies app, hi-light stories relating to new/modified components - see the example screenshot below] .......
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+![][stories]
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### UI Design.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+...... Insert screenshots of the app's views, with appropriate captions (see example below). (For the Movies Fan App, only show the new/modified views) ........
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![][view]
+>Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
 
-## Learn More
+### Routing.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+...... Insert a list of the routes supported by your app and state the associated view. If relevant, specify which of the routes require authentication, i.e. protected/private. [For the Movies Fan app, only new routes should be listed.] ......... 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
++ GET /blogs - displays all published blogs.
++ POST /blogs (protected) - add a new blog.
++ GET /blogs/:id - displays a particular blog.
++ GET /blogs/:id/comments (protected) - detail view of a particular blog and its comments.
++ etc.
++ etc.
 
-### Code Splitting
+## Independent learning (If relevant).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+....... Briefly state any technologies/techniques used in your project codebase that was not covered in the lectures/labs. Provide source code filename (source code excerpts are not required in most cases) references to support your assertions and include references (articles/blogs) ......... 
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[model]: ./data.jpg
+[view]: ./view.png
+[stories]: ./storybook.png

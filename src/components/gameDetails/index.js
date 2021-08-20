@@ -48,8 +48,6 @@ const GameDetails = (props) => {
         </Typography>
       </Card>
 
-      {/* STICK THE GAME VIDEO IN HERE */}
-
       <div component="ul" className={classes.root}>
         <li>
           <Chip variant="outlined" label="Platforms" className={classes.chip} color="primary" />

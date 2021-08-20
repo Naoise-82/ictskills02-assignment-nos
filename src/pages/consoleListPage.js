@@ -14,16 +14,14 @@ const ConsoleListPage = (props) => {
   if (isError) {
     return <h1>{error.message}</h1>
   }
-  console.log("ConsoleList Page data: " + data);
+  console.log("ConsoleList Page data: ");
+  console.log(data);
   const gameConsoles = data;
 
   return (
     <PageTemplate
       title='Explore Game Consoles'
       gameConsoles={gameConsoles}
-      action={(gameConsole) => {
-        return <h1> Poop </h1>
-      }}
     />
   );
 };

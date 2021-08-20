@@ -8,8 +8,8 @@ const GamesContextProvider = (props) => {
   const addToCollection = (game) => {
     setCollection([...collection,game.id])
   };
-  console.log("Context Collection:")
-  console.log(collection);
+  //console.log("Context Collection:")
+  //console.log(collection);
   
   const removeFromCollection = (game) => {
     setCollection( collection.filter(

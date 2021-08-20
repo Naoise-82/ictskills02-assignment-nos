@@ -21,7 +21,6 @@ const queryClient = new QueryClient({
   },
 });
 
-
 const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
@@ -31,8 +30,8 @@ const App = () => {
           <Switch>
             <Route exact path="/games/collection" component={GameCollectionPage} />
             <Route path="/games/:id" component={GameDetailsPage} />
+            <Route exact path="/consoles/:id" component={ConsoleDetailsPage} />
             <Route path="/consoles" component={ConsoleListPage} />
-            <Route pathe="/consoles/:id" component={ConsoleDetailsPage} />
             <Route path="/" component={HomePage} />
             <Redirect from="*" to="/" />
           </Switch>
