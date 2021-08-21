@@ -15,7 +15,7 @@ const queryClient = new QueryClient({
 });
 
 export default {
-  title: "Home Page/FilterGamesCard",
+  title: "Games/FilterGamesCard",
   component: FilterGamesCard,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,

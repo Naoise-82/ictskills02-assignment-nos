@@ -1,7 +1,6 @@
 import React from "react";
 import ConsoleHeader from "../components/consoleHeader";
 import ConsoleDetails from "../components/consoleDetails";
-import { makeStyles } from "@material-ui/core/styles";
 import { getConsole } from '../api/igdb-api';
 import { useQuery } from "react-query";
 import Spinner from '../components/spinner';

@@ -3,7 +3,7 @@ import GameListHeader from "../components/gameListHeader";
 import { MemoryRouter } from "react-router";
 
 export default {
-    title: "Home Page/Header",
+    title: "Games/Header",
     component: GameListHeader,
     decorators: [
         (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,

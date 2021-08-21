@@ -6,7 +6,7 @@ import GamesContextProvider from "../contexts/gamesContext";
 import AddToCollectionIcon from "../components/cardIcons/addToCollection";
 
 export default {
-  title: "Home Page/GameCard",
+  title: "Games/GameCard",
   component: GameCard,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
@@ -17,7 +17,7 @@ export default {
 export const Basic = () => {
   return (
     <GameCard
-      game={SampleGame}
+      game={SampleGame[0]}
       action={(game) => <AddToCollectionIcon game={game} />}
       tagging={(game) => null}
     />
@@ -25,14 +25,3 @@ export const Basic = () => {
 };
 Basic.storyName = "Default";
 
-export const Exceptional = () => {
-  const sampleNoPoster = { ...SampleGame, poster_path: undefined };
-  return (
-    <GameCard
-      game={sampleNoPoster}
-      action={(game) => <AddToCollectionIcon game={game} />}
-      taging={(game) => null}
-    />
-  );
-};
-Exceptional.storyName = "exception";

@@ -20,7 +20,6 @@ const useStyles = makeStyles((theme) => ({
     listStyle: "none",
     display: "flex",
     marginTop: 5,
-    marginBottom: 0,
     padding: theme.spacing(0.25)
   },
   card: {
@@ -43,9 +42,6 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 5,
     marginRight: 5
   },
-  CardActions: {
-    marginTop: 0
-  }
 }));
 
 export default function GameCard({ game, action }) {

@@ -7,7 +7,7 @@ import Grid from "@material-ui/core/Grid";
 import GamesContextProvider from "../contexts/gamesContext";
 
 export default {
-  title: "Home Page/GameList",
+  title: "Games/GameList",
   component: GameList,
   decorators: [
     (Story) => <MemoryRouter initialEntries={["/"]}>{Story()}</MemoryRouter>,
@@ -17,11 +17,11 @@ export default {
 
 export const Basic = () => {
   const games = [
-    { ...SampleGame, id: 1 },
-    { ...SampleGame, id: 2 },
-    { ...SampleGame, id: 3 },
-    { ...SampleGame, id: 4 },
-    { ...SampleGame, id: 5 },
+    { ...SampleGame[0], id: 1 },
+    { ...SampleGame[0], id: 2 },
+    { ...SampleGame[0], id: 3 },
+    { ...SampleGame[0], id: 4 },
+    { ...SampleGame[0], id: 5 },
   ];
   return (
     <Grid container spacing={5}>
