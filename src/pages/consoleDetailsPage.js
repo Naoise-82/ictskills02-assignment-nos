@@ -7,26 +7,7 @@ import { useQuery } from "react-query";
 import Spinner from '../components/spinner';
 import { withRouter } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexWrap: "wrap",
-    overflow: 'hidden',
-    justifyContent: "space-around",
-    padding: 10
-  },
-  imageList: {
-    paddingLeft: 15,
-    flexWrap: "nowrap",
-    transform: "translateZ(0)",
-  },
-  heading: {
-    justifyContent: "left",
-  }
-}));
-
 const ConsoleDetailsPage = (props) => {
-  const classes = useStyles();
   const { id } = props.match.params;
 
   const { data: gameConsole, error, isLoading, isError } = useQuery(

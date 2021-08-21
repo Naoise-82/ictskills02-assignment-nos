@@ -22,11 +22,10 @@ This app is designed to be similar to the movies app we created in the labs, but
 
 ## API Data Model.
 
-..... [For non-Movies Fan app] Insert a diagram of the API's data model (see example below) AND/OR a sample(s) of the JSON documents returned by its endpoints ........
+[For non-Movies Fan app] Insert a diagram of the API's data model (see example below) AND/OR a sample(s) of the JSON documents returned by its endpoints
 
-![][model]
-
-......[For the Movies Fan app] Specify the additional TMDB endpoints used and show sample responses, in JSON .........
+![IGDB API Model][model]
+>The primary parent obect of the DB is **Game**, and this diagram represents the paramters of the game object that are either objects or arrays themselves that I have used in the app
 
 ## App Design.
 
@@ -59,6 +58,6 @@ This app is designed to be similar to the movies app we created in the labs, but
 ....... Briefly state any technologies/techniques used in your project codebase that was not covered in the lectures/labs. Provide source code filename (source code excerpts are not required in most cases) references to support your assertions and include references (articles/blogs) ......... 
 
 
-[model]: ./data.jpg
+[model]: ./igdb_api_model.png
 [view]: ./view.png
 [stories]: ./storybook.png

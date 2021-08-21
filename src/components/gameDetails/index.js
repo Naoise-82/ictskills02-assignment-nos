@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Chip from "@material-ui/core/Chip";
 import Card from "@material-ui/core/Card";
 import Typography from "@material-ui/core/Typography";
@@ -50,11 +51,13 @@ const GameDetails = (props) => {
 
       <div component="ul" className={classes.root}>
         <li>
-          <Chip variant="outlined" label="Platforms" className={classes.chip} color="primary" />
+          <Chip label="Platforms" className={classes.chip} color="primary" />
         </li>
         {game[0].platforms.map((g) => (
           <li key={g.id}>
+             <Link to={`/consoles/${g.id}`} >
             <Chip label={g.abbreviation} className={classes.chip} />
+            </Link>
           </li>
         ))}
       </div>
@@ -63,6 +66,16 @@ const GameDetails = (props) => {
           <Chip label="Genres" className={classes.chip} color="primary" />
         </li>
         {game[0].genres.map((g) => (
+          <li key={g.id}>
+            <Chip label={g.name} className={classes.chip} />
+          </li>
+        ))}
+      </div>
+      <div component="ul" className={classes.root}>
+        <li>
+          <Chip label="Game Modes" className={classes.chip} color="primary" />
+        </li>
+        {game[0].game_modes.map((g) => (
           <li key={g.id}>
             <Chip label={g.name} className={classes.chip} />
           </li>

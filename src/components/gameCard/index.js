@@ -15,9 +15,16 @@ import platform_placeholder from "../../images/platform-placeholder.png";
 import Avatar from "@material-ui/core/Avatar";
 import { Typography } from "@material-ui/core";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
+  root: {
+    listStyle: "none",
+    display: "flex",
+    marginTop: 5,
+    marginBottom: 0,
+    padding: theme.spacing(0.25)
+  },
   card: {
-    maxHeight: 650,
+    maxHeight: 670,
     backgroundColor: "rgb(220,220,255)"
   },
   media: {
@@ -35,8 +42,11 @@ const useStyles = makeStyles({
   chip: {
     marginLeft: 5,
     marginRight: 5
+  },
+  CardActions: {
+    marginTop: 0
   }
-});
+}));
 
 export default function GameCard({ game, action }) {
   const classes = useStyles();
@@ -84,9 +94,19 @@ export default function GameCard({ game, action }) {
         <Chip className={classes.chip}
           color="primary" label={`Released: ${game.release_dates ? game.release_dates[0].y : "N/A"}`} />
         <Link to={`/consoles/${game.platforms[0].id}`} >
-        <Chip className={classes.chip}
-          color="primary" label={`Platform: ${game.platforms ? game.platforms[0].abbreviation : "N/A"}`} />
-          </Link>
+          <Chip className={classes.chip}
+            color="primary" label={`Platform: ${game.platforms ? game.platforms[0].abbreviation : "N/A"}`} />
+        </Link>
+        <div component="ul" className={classes.root}>
+          <li>
+            <Chip label="Game Modes" className={classes.chip} color="primary" />
+          </li>
+          {game.game_modes.map((g) => (
+            <li key={g.id} >
+              <Chip variant="outlined" label={g.name} className={classes.chip} />
+            </li>
+          ))}
+        </div>
       </CardContent>
       <CardActions>
         {action(game)}
