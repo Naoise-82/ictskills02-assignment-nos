@@ -13,6 +13,7 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "space-around",
     flexWrap: "wrap",
     marginBottom: theme.spacing(1.5),
+    backgroundColor: "rgb(220,220,255)"
   },
 }));
 
@@ -25,7 +26,7 @@ const Header = ({ title, history }) => {
         <ArrowBackIcon color="primary" fontSize="large" />
       </IconButton>
 
-      <Typography variant="h4" component="h3">
+      <Typography variant="h4">
         {title}
       </Typography>
       <IconButton

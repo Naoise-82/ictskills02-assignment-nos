@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     Width: 1,
     marginBottom: theme.spacing(1.5),
-    backgroundColor: "#3f51b5",
+    backgroundColor: "rgb(220,220,255)"
   },
 
   formControl: {

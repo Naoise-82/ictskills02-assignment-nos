@@ -9,14 +9,16 @@ This app is designed to be similar to the movies app we created in the labs, but
 ### User Features
  
  + A *Homepage* similar ot the movies app, with a random list of 30 games
- + A *Game Collection Page* simialr to the *Favourite movies* page fomr the movies app. I had intebded to use a POST request to teh API to add these to a personal list on my account with IGDB, but I disvoverd that
- + Feature 3
- + etc
- + etc
+ + A *My Collection* Page similar to the *Favourite Movies* page from the movies app. I had intended to use a POST request to the IDGB API to add these to a personal list on my account with them, but I discovered that this is not actually an available feature of the APi currently.
+ + A *Consoles* page listing games consoles in order of the their generations (see https://en.wikipedia.org/wiki/Home_video_game_console_generations)
+ + 
 
 ## Setup requirements.
 
-...... A brief explanation (to a third party) of any non-standard setup steps necessary to run your app/client locally (after cloning the repo) ........
++ I had to use a third party proxy called *thigproxy* running locally on my machine to forward requests to the API in order ot get around CORS issues.
++ Here is the link to the repo of my configured version of the proxy: https://github.com/Naoise-82/thingproxy.
++ All you need to do is clone the repo, and run it using `npm start` from the terminal, and then you can run the assigment app.
++ The assignment is configure to forward API requests to the thing proxy server on port 4000.
 
 ## API Data Model.
 

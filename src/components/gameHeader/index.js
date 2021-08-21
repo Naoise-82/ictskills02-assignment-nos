@@ -14,6 +14,7 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     padding: theme.spacing(1.5),
     margin: 0.5,
+    backgroundColor: "#505050"
   },
 }));
 

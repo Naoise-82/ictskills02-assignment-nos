@@ -31,7 +31,6 @@ const SiteHeader = ( { history }) => {
     { label: "Home", path: "/" },
     { label: "Consoles", path: "/consoles" },
     { label: "My Collection", path: "/games/collection" },
-    { label: "Progress Tracker", path: "/" },
   ];
 
   const handleMenuSelect = (pageURL) => {
@@ -47,10 +46,10 @@ const SiteHeader = ( { history }) => {
       <AppBar position="fixed">
         <Toolbar>
           <Typography variant="h4" className={classes.title}>
-            IGDB Collector's Hub
+            IGDB Game Console Hub
           </Typography>
           <Typography variant="h6" className={classes.title}>
-            A Site for Finding and Recording Your Game Collection
+            A Site for Exploring Games and Game Consoles
           </Typography>
             {isMobile ? (
               <>
