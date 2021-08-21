@@ -19,11 +19,14 @@ const useStyles = makeStyles((theme) => ({
   root: {
     listStyle: "none",
     display: "flex",
+    flexWrap: "wrap",
     marginTop: 5,
+    marginBottom: 5,
     padding: theme.spacing(0.25)
   },
   card: {
-    maxHeight: 670,
+    maxHeight: 700,
+    minWidth: 300,
     backgroundColor: "rgb(220,220,255)"
   },
   media: {

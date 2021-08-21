@@ -9,6 +9,9 @@ import { withRouter } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
+    width: "66%",
+    marginLeft: "auto",
+    marginRight: "auto",
     display: "flex",
     justifyContent: "space-around",
     flexWrap: "wrap",

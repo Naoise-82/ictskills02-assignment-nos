@@ -337,16 +337,16 @@ This app is designed to be similar to the movies app we created in the labs, but
 ## App Design.
 
 ### Component catalogue.
-Insert a screenshot from the Storybook UI showing your component catalogue.
 
-![][stories]
+![Storybook Components Screenshot][stories]
 
 ### UI Design.
 
-...... Insert screenshots of the app's views, with appropriate captions (see example below). (For the Movies Fan App, only show the new/modified views) ........
+![Homepage/Games List][game-list-view]
+>Home page view, which is a list of "random" games, curated from the DB
 
-![][view]
->Shows detailed information on a movie. Clicking the 'Reviews' floating action button will display extracts from critic reviews.
+![Console List][console-list-view]
+>A list of game consoles, order by generation
 
 ### Routing.
 
@@ -365,5 +365,6 @@ Insert a screenshot from the Storybook UI showing your component catalogue.
 
 
 [model]: ./igdb_api_model.png
-[view]: ./view.png
+[game-list-view]: ./game-list-view.png
+[console-list-view]: ./console-list-view.png
 [stories]: ./storybook.png
