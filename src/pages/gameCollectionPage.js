@@ -24,12 +24,14 @@ const GameCollectionPage = () => {
     return <Spinner />
   }
 
-  console.log("Collection Queries: ");
-  console.log(gameCollectionQueries);
+  //Debugging
+  //console.log("Collection Queries: ");
+  //console.log(gameCollectionQueries);
+
   const games = gameCollectionQueries.map((q) => q.data[0]);
 
-  console.log("Game Collection Page Games:");
-  console.log(games);
+  //console.log("Game Collection Page Games:");
+  //console.log(games);
 
   return (
     <PageTemplate

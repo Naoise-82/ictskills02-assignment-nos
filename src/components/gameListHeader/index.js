@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// Renders a header for a list of game cards
 const Header = ({ title, history }) => {
   const classes = useStyles();
   return (

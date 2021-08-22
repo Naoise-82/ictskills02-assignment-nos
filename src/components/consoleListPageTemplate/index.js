@@ -11,6 +11,7 @@ const useStyles = makeStyles({
   },
 });
 
+//Pge template for displaying a list of consoles
 function ConsoleListPageTemplate({ gameConsoles, title }) {
   const classes = useStyles();
   const [nameFilter, setNameFilter] = useState("");
@@ -19,8 +20,9 @@ function ConsoleListPageTemplate({ gameConsoles, title }) {
   const platformFamilyId = Number(platformFamilyFilter);
   const generationId = Number(generationFilter);
 
-  console.log("GameList Template Page:");
-  console.log(gameConsoles);
+  // Debugging
+  //console.log("GameList Template Page:");
+  //console.log(gameConsoles);
 
   let displayedGameConsoles = gameConsoles
     .filter((c) => {

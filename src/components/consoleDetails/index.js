@@ -32,10 +32,11 @@ const useStyles = makeStyles((theme) => ({
     backgroundSize: 'contain'
   }
 }));
-
+//A view of a single games console's details
 const ConsoleDetails = (props) => {
   const classes = useStyles();
   const gameConsole = props.gameConsole;
+  //Debugging
   //console.log(gameConsole[0]);
 
   const consoleGenerations = [

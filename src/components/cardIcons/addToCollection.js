@@ -3,6 +3,7 @@ import { GamesContext } from "../../contexts/gamesContext";
 import IconButton from "@material-ui/core/IconButton";
 import LibraryAddIcon from '@material-ui/icons/LibraryAdd';
 
+// Adds games to the the collection array
 const AddToCollectionIcon = ({ game }) => {
   const context = useContext(GamesContext);
 

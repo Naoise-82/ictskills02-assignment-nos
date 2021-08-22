@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+//Renders the details of a specific game
 const GameDetails = (props) => {
   const classes = useStyles();
   const game = props.game;

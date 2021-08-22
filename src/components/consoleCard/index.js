@@ -32,6 +32,7 @@ const useStyles = makeStyles({
   }
 });
 
+// A card displaying the basic details fo a single game
 export default function ConsoleCard({ gameConsole }) {
   const classes = useStyles();
   const consoleGenerations = [
@@ -67,6 +68,7 @@ export default function ConsoleCard({ gameConsole }) {
     },
   ]
 
+  //Build a url for th external links to Wikipedia
   const urlEnder = gameConsole.generation ? consoleGenerations[gameConsole.generation].url : "Home_video_game_console_generations";
   const url = "https://en.wikipedia.org/wiki/" + urlEnder;
 

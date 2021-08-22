@@ -47,6 +47,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// A card for displaying the basic details of a single game
 export default function GameCard({ game, action }) {
   const classes = useStyles();
   const { collection } = useContext(GamesContext);

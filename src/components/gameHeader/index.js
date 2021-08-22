@@ -17,6 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// Header for a specific game
 const GameHeader = ({ game, history }) => {
   console.log(game[0]);
   const classes = useStyles();

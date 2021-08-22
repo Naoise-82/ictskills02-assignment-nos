@@ -378,15 +378,11 @@ This app is designed to be similar to the movies app we created in the labs, but
 + GET */consoles* - View a list of Game Consoles
 + GET */consoles/:id* - View the details of a particular console
 
-## Independent learning (If relevant).
+## Independent learning (If relevant). 
 
-....... Briefly state any technologies/techniques used in your project codebase that was not covered in the lectures/labs. Provide source code filename (source code excerpts are not required in most cases) references to support your assertions and include references (articles/blogs) ......... 
-
-+ My main source of new learning was from the IGDB API documentation for handling the API requests: https://api-docs.igdb.com/#about
-+ I also used the **ImageLIst** component fomr Material-UI for the screenshots list on the Game Details Page: https://material-ui.com/components/image-list/
-+ I used **Axios** for my API requests, as was suggested in the documentation for JavaScript web apps.
-
-
++ My main source of new learning was from the IGDB API documentation for handling the API requests - https://api-docs.igdb.com/#about
++ I also used the **ImageLIst** component for Material-UI for the screenshots list in **pages/gameDeatilsPage.js** - https://material-ui.com/components/image-list/
++ I used **Axios** for my API requests in **/api/igdb-api.js**, as was suggested in the documentation for JavaScript web apps.
 
 [model]: ./readme_images/igdb_api_model.png
 [game-list-view]: ./readme_images/game-list-view.png

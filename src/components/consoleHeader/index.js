@@ -17,8 +17,11 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// Header for the details page of a single games console
 const ConsoleHeader = ({ gameConsole, history }) => {
-  console.log(gameConsole[0]);
+  
+  // Debugging 
+  //console.log(gameConsole[0]);
   const classes = useStyles();
 
   return (
@@ -28,7 +31,7 @@ const ConsoleHeader = ({ gameConsole, history }) => {
       </IconButton>
       <Typography variant="h4" >
         {gameConsole[0].name}<br />
-        <Typography variant="h5"> Abbreviation: {gameConsole[0].abbreviation ? gameConsole[0].abbreviation: "N/A" }</Typography>
+        <Typography variant="h5"> Abbreviation: {gameConsole[0].abbreviation ? gameConsole[0].abbreviation : "N/A"}</Typography>
       </Typography>
       <IconButton aria-label="go forward" onClick={() => history.goForward()}>
         <ArrowForwardIcon color="primary" fontSize="large" />

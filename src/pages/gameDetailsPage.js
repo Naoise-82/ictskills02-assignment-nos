@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+//Renders the page for details fo a specific game
 const GameDetailsPage = (props) => {
   const classes = useStyles();
   const { id } = props.match.params;
@@ -37,7 +38,7 @@ const GameDetailsPage = (props) => {
     ["game", { id: id }],
     getGame
   );
-  
+
   if (isLoading) {
     return <Spinner />;
   }

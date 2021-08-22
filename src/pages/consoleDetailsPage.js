@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 import Spinner from '../components/spinner';
 import { withRouter } from "react-router-dom";
 
+//enders the page for the details of a single console
 const ConsoleDetailsPage = (props) => {
   const { id } = props.match.params;
 

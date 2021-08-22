@@ -41,7 +41,10 @@ export default function FilterConsolesCard(props) {
 
   }
 
+  
   const platformFamilies = data;
+
+  //Builds and array of Game Console Generations for the relevant filtering field
   const generations = [
     {id: 0, name: "All"},
     {id: 1, name: "First (1972-1976)"},

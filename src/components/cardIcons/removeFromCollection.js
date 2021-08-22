@@ -4,6 +4,7 @@ import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import { GamesContext } from "../../contexts/gamesContext";
 import { Tooltip } from "@material-ui/core";
 
+//Removes games for the collection
 const RemoveFromCollectionIcon = ({ game }) => {
   const context = useContext(GamesContext);
 

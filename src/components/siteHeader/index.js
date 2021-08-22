@@ -20,6 +20,7 @@ const useStyles = makeStyles((theme) => ({
   offset: theme.mixins.toolbar,
 }));
 
+//Renders the header for the entire site
 const SiteHeader = ( { history }) => {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);

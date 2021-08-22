@@ -11,6 +11,7 @@ const useStyles = makeStyles({
   },
 });
 
+// Template page for displaying the HomePage/Browse Games page or Game Collection Page
 function GameListPageTemplate({ games, title, action }) {
   const classes = useStyles();
   const [nameFilter, setNameFilter] = useState("");

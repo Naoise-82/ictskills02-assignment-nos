@@ -5,6 +5,7 @@ import Spinner from '../components/spinner'
 import { useQuery } from 'react-query';
 import AddToCollectionIcon from "../components/cardIcons/addToCollection";
 
+//Renders the HomePage/Browse All Games Page
 const HomePage = (props) => {
   const { data, error, isLoading, isError} = useQuery('browse', getGames);
 
@@ -15,6 +16,7 @@ const HomePage = (props) => {
   if (isError) {
     return <h1>{error.message}</h1>
   }
+  // Debugging
   //console.log("Homepage data: ");
   //console.log(data);
   const games = data;

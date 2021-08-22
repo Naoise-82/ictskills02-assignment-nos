@@ -34,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+//Filters the games by genre and game console platform
 export default function FilterGamesCard(props) {
   const classes = useStyles();
   const { data: genres, error: genresError, isLoading: genresIsLoading, isError: genresIsError } = useQuery("genres", getGenres);
