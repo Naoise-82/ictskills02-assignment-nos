@@ -354,7 +354,7 @@ This app is designed to be similar to the movies app we created in the labs, but
 
 
 
-![Game Detail Page][game-detail-page]
+![Game Detail Page][game-detail-view]
 >A view of a single game's details. The platform chips are parameterized links to theor respective console detail pages.
 
 
@@ -388,10 +388,10 @@ This app is designed to be similar to the movies app we created in the labs, but
 
 
 
-[model]: ./igdb_api_model.png
+[model]: ./readme_images/igdb_api_model.png
 [game-list-view]: ./readme_images/game-list-view.png
 [console-list-view]: ./readme_images/console-list-view.png
-[game-detail-page]: ./readme_images/game-detail-view.png
+[game-detail-view]: ./readme_images/game-detail-view.png
 [console-detail-view]: ./readme_images/console-detail-view.png
 [game-collection-page]: ./readme_images/game-collection-page.png
 [stories]: ./readme_images/storybook.png
