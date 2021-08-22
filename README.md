@@ -4,21 +4,23 @@ Name: Naoise O'Sullivan
 
 ## Overview.
 
-This app is designed to be similar to the movies app we created in the labs, but using the **Internet Game Database (IDGB)** API to retieve information about video games, consoles and game characters. I have limited the scope of the API calls in the app to retieve games and hardware from consoles, as opposed to all platforms (PC/Mac/Linux, Mobile, Arcade etc.).
+This app is designed to be similar to the movies app we created in the labs, but using the **Internet Game Database (IDGB)** API to retieve information about video games, consoles and game characters. I have limited the scope of the API calls in the app to retieve games and hardware from consoles, as opposed to all platforms (PC/Mac/Linux, Mobile/Tablet (Android/iOS), Arcade etc.) to simplify the filter cards and clean up the results from API calls.
+
 
 ### User Features
  
  + A *Homepage* similar ot the movies app, with a random list of 30 games
- + A *My Collection* Page similar to the *Favourite Movies* page from the movies app. I had intended to use a POST request to the IDGB API to add these to a personal list on my account with them, but I discovered that this is not actually an available feature of the APi currently.
+ + A *My Collection* Page similar to the *Favourite Movies* page from the movies app. I had intended to use a POST request to the IDGB API to add these to a personal list on my account with them, and also the ability to add a percentage of completion to each game, but I discovered that this is not actually an available feature of the API currently.
  + A *Consoles* page listing games consoles in order of the their generations (see https://en.wikipedia.org/wiki/Home_video_game_console_generations)
- + 
+
 
 ## Setup requirements.
 
 + I had to use a third party proxy called *thigproxy* running locally on my machine to forward requests to the API in order ot get around CORS issues.
 + Here is the link to the repo of my configured version of the proxy: https://github.com/Naoise-82/thingproxy.
-+ All you need to do is clone the repo, and run it using `npm start` from the terminal, and then you can run the assigment app.
-+ The assignment is configure to forward API requests to the thing proxy server on port 4000.
++ All you need to do is clone the repo to your local machine and run it using `npm start` from the terminal, and then you can run the assigment app.
++ The assignment is configure to forward API requests to the *thingproxy* server on port 4000.
+
 
 ## API Data Model.
 
@@ -27,7 +29,7 @@ This app is designed to be similar to the movies app we created in the labs, but
 
 ### JSON Sample Data
 
-#### Game
+#### Game:
 ```json
 {
         "id": 1029,
@@ -183,7 +185,7 @@ This app is designed to be similar to the movies app we created in the labs, but
     }
 ```
 
-#### Console
+#### Console:
 ```json
  {
         "id": 12,
@@ -236,7 +238,7 @@ This app is designed to be similar to the movies app we created in the labs, but
     }
 ```
 
-#### Genres
+#### Genres:
 ```json
 [
     {
@@ -345,26 +347,51 @@ This app is designed to be similar to the movies app we created in the labs, but
 ![Homepage/Games List][game-list-view]
 >Home page view, which is a list of "random" games, curated from the DB
 
+
+
 ![Console List][console-list-view]
->A list of game consoles, order by generation
+>A list of game consoles, ordered by generation, with parameterized links to the the wikipedia articles relating to their generation.
+
+
+
+![Game Detail Page][game-detail-page]
+>A view of a single game's details. The platform chips are parameterized links to theor respective console detail pages.
+
+
+
+![Console Detail Page][console-detail-view]
+>A view of a game console's details page. The **generation** chip is a link to a wikipedia article relating to the generation of the console.
+
+
+
+![Game Colection Page][game-collection-page]
+>An analogue to the *favourite movies* page form the labs, games can be added and remove from youe collection, which is conceptually meant to reflect the actual physical copies of the games that you own.
+
 
 ### Routing.
 
-...... Insert a list of the routes supported by your app and state the associated view. If relevant, specify which of the routes require authentication, i.e. protected/private. [For the Movies Fan app, only new routes should be listed.] ......... 
+**Note:** All the API requests to IGDB are actually POST requests by design, even though they can behave as GET or POST requests.
 
-+ GET /blogs - displays all published blogs.
-+ POST /blogs (protected) - add a new blog.
-+ GET /blogs/:id - displays a particular blog.
-+ GET /blogs/:id/comments (protected) - detail view of a particular blog and its comments.
-+ etc.
-+ etc.
++ GET */* - renders the HomePage/Browse All Games view.
++ GET */games/collection* - View the games adedd to your collection.
++ GET */games/:id* - View the details of a particular game.
++ GET */consoles* - View a list of Game Consoles
++ GET */consoles/:id* - View the details of a particular console
 
 ## Independent learning (If relevant).
 
 ....... Briefly state any technologies/techniques used in your project codebase that was not covered in the lectures/labs. Provide source code filename (source code excerpts are not required in most cases) references to support your assertions and include references (articles/blogs) ......... 
 
++ My main source of new learning was from the IGDB API documentation for handling the API requests: https://api-docs.igdb.com/#about
++ I also used the **ImageLIst** component fomr Material-UI for the screenshots list on the Game Details Page: https://material-ui.com/components/image-list/
++ I used **Axios** for my API requests, as was suggested in the documentation for JavaScript web apps.
+
+
 
 [model]: ./igdb_api_model.png
-[game-list-view]: ./game-list-view.png
-[console-list-view]: ./console-list-view.png
-[stories]: ./storybook.png
+[game-list-view]: ./readme_images/game-list-view.png
+[console-list-view]: ./readme_images/console-list-view.png
+[game-detail-page]: ./readme_images/game-detail-view.png
+[console-detail-view]: ./readme_images/console-detail-view.png
+[game-collection-page]: ./readme_images/game-collection-page.png
+[stories]: ./readme_images/storybook.png

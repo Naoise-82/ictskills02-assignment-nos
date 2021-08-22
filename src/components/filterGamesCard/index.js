@@ -17,7 +17,7 @@ import { getGenres, getPlatforms } from '../../api/igdb-api';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    width: "50%",
+    width: "66%",
     marginLeft: "auto",
     marginRight: "auto",
     marginBottom: theme.spacing(1.5),
